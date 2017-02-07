@@ -1,0 +1,8 @@
+title: huanghui8030.github.com
+description: blog
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
