@@ -151,6 +151,7 @@ pre {
   border-top: 5px solid #424242;
   border-bottom: 1px solid #e8e8e8;
   min-height: 56px;
+  background: #f4f4f4;
   position: relative; }
 
 .site-title {
@@ -213,7 +214,8 @@ pre {
  */
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 0; }
+  padding: 30px 0;
+  background: #f4f4f4; }
 
 .footer-heading {
   font-size: 18px;

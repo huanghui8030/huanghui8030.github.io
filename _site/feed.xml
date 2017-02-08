@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>黄卉的博客</title>
-    <description>不断尝试和学习新知识！
+    <title>常用知识总结</title>
+    <description>不断尝试和学习新知识！总结，总结，总结！
 </description>
     <link>https://huanghui8030.github.io//</link>
     <atom:link href="https://huanghui8030.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Feb 2017 15:39:59 +0800</pubDate>
-    <lastBuildDate>Wed, 08 Feb 2017 15:39:59 +0800</lastBuildDate>
+    <pubDate>Wed, 08 Feb 2017 16:16:27 +0800</pubDate>
+    <lastBuildDate>Wed, 08 Feb 2017 16:16:27 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>基础样式_base.less</title>
+        <description>&lt;p&gt;目前项目中用到的都是通过less来开发，然后这里需要用到的就是将base放到各自项目里面。&lt;/p&gt;
+
+&lt;p&gt;然后再直接import进来：&lt;code class=&quot;highlighter-rouge&quot;&gt;@：import url(&#39;_base.less&#39;); &lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;具体如下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/* 初始化CSS */
+body,p,ul,ol,li,img,h1,h2,h3,h4,h5,h6,form,fieldset,legend,select,input{margin:0; padding:0;}
+body{background:#F1F1F1;color:#333333;text-align:left;font:14px/1.5 tahoma,arial,&#39;Microsoft YaHei&#39;, &quot;Hiragino Sans GB&quot;,SimSun, sans-serif;}
+ul,ol,li{list-style:none;}
+select,input{vertical-align:middle; font-size:14px; font-family: Tahoma, Helvetica, Arial, &#39;Microsoft YaHei&#39;, SimSun, sans-serif;}
+img{border:0;}
+p{text-indent:2em;text-align:left;}
+a,a:link,a:visited{color:#333333; text-decoration:none;}
+a:hover{color:#BB3543; text-decoration:underline;}
+.clearfix:after,.clearfix-after{content:&#39;\0020&#39;; display:block; clear:both; height:0;}
+.clearfix{zoom:1;}
+.clearFloat{ clear:both;height:0;line-height:0;font-size:0; overflow:hidden; }
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Wed, 08 Feb 2017 16:12:19 +0800</pubDate>
+        <link>https://huanghui8030.github.io//css/2017/02/08/%E5%9F%BA%E7%A1%80%E6%A0%B7%E5%BC%8F.html</link>
+        <guid isPermaLink="true">https://huanghui8030.github.io//css/2017/02/08/%E5%9F%BA%E7%A1%80%E6%A0%B7%E5%BC%8F.html</guid>
+        
+        
+        <category>css</category>
+        
+      </item>
     
       <item>
         <title>html5模板</title>
@@ -56,10 +89,10 @@
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/widget、jsGame/minesweepergame/MinesweeperGame.html&quot;&gt;扫雷&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/widget/jsGame/minesweepergame/MinesweeperGame.html&quot;&gt;扫雷&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/widget、jsGame/snakegame/JSSnakeGame.html&quot;&gt;贪吃蛇&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;/widget/jsGame/snakegame/JSSnakeGame.html&quot;&gt;贪吃蛇&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 </description>
@@ -69,6 +102,31 @@
         
         
         <category>javascript</category>
+        
+      </item>
+    
+      <item>
+        <title>课题研究ppt</title>
+        <description>&lt;p&gt;2016年做了三个课题研究，分享课题研究的内容，具体如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/file/课题研究《前端自动化工具Gulp》黄卉20161027.key&quot;&gt;课题研究《前端自动化工具Gulp》黄卉20161027&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/file/课题研究《CSS预处理语言Less》201607.key&quot;&gt;课题研究《CSS预处理语言Less》黄卉201607&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/file/课题研究《移动端网页设计》黄卉201606.key&quot;&gt;课题研究《移动端网页设计》黄卉201606&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 07 Feb 2013 16:12:19 +0800</pubDate>
+        <link>https://huanghui8030.github.io//study/2013/02/07/%E8%AF%BE%E9%A2%98%E7%A0%94%E7%A9%B6%E5%88%97%E8%A1%A8.html</link>
+        <guid isPermaLink="true">https://huanghui8030.github.io//study/2013/02/07/%E8%AF%BE%E9%A2%98%E7%A0%94%E7%A9%B6%E5%88%97%E8%A1%A8.html</guid>
+        
+        
+        <category>study</category>
         
       </item>
     
