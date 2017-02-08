@@ -6,8 +6,8 @@
 </description>
     <link>https://huanghui8030.github.io//</link>
     <atom:link href="https://huanghui8030.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Feb 2017 16:16:27 +0800</pubDate>
-    <lastBuildDate>Wed, 08 Feb 2017 16:16:27 +0800</lastBuildDate>
+    <pubDate>Wed, 08 Feb 2017 16:17:23 +0800</pubDate>
+    <lastBuildDate>Wed, 08 Feb 2017 16:17:23 +0800</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -40,6 +40,31 @@ a:hover{color:#BB3543; text-decoration:underline;}
         
         
         <category>css</category>
+        
+      </item>
+    
+      <item>
+        <title>课题研究ppt</title>
+        <description>&lt;p&gt;2016年做了三个课题研究，分享课题研究的内容，具体如下：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/file/课题研究《前端自动化工具Gulp》黄卉20161027.key&quot;&gt;课题研究《前端自动化工具Gulp》黄卉20161027&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/file/课题研究《CSS预处理语言Less》201607.key&quot;&gt;课题研究《CSS预处理语言Less》黄卉201607&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;/file/课题研究《移动端网页设计》黄卉201606.key&quot;&gt;课题研究《移动端网页设计》黄卉201606&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Wed, 08 Feb 2017 16:12:19 +0800</pubDate>
+        <link>https://huanghui8030.github.io//study/2017/02/08/%E8%AF%BE%E9%A2%98%E7%A0%94%E7%A9%B6%E5%88%97%E8%A1%A8.html</link>
+        <guid isPermaLink="true">https://huanghui8030.github.io//study/2017/02/08/%E8%AF%BE%E9%A2%98%E7%A0%94%E7%A9%B6%E5%88%97%E8%A1%A8.html</guid>
+        
+        
+        <category>study</category>
         
       </item>
     
@@ -102,31 +127,6 @@ a:hover{color:#BB3543; text-decoration:underline;}
         
         
         <category>javascript</category>
-        
-      </item>
-    
-      <item>
-        <title>课题研究ppt</title>
-        <description>&lt;p&gt;2016年做了三个课题研究，分享课题研究的内容，具体如下：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/file/课题研究《前端自动化工具Gulp》黄卉20161027.key&quot;&gt;课题研究《前端自动化工具Gulp》黄卉20161027&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/file/课题研究《CSS预处理语言Less》201607.key&quot;&gt;课题研究《CSS预处理语言Less》黄卉201607&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;a href=&quot;/file/课题研究《移动端网页设计》黄卉201606.key&quot;&gt;课题研究《移动端网页设计》黄卉201606&lt;/a&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-</description>
-        <pubDate>Thu, 07 Feb 2013 16:12:19 +0800</pubDate>
-        <link>https://huanghui8030.github.io//study/2013/02/07/%E8%AF%BE%E9%A2%98%E7%A0%94%E7%A9%B6%E5%88%97%E8%A1%A8.html</link>
-        <guid isPermaLink="true">https://huanghui8030.github.io//study/2013/02/07/%E8%AF%BE%E9%A2%98%E7%A0%94%E7%A9%B6%E5%88%97%E8%A1%A8.html</guid>
-        
-        
-        <category>study</category>
         
       </item>
     
