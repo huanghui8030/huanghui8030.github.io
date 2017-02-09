@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>loadsh用法示例</title>
+  </head>
+  <body>
+    <div>
+        <h4> N 次循环</h4>
+        一般方法：<span id="s1"></span><br><br/>
+        Array方法：<span id="s2"></span><br><br/>
+        loadsh的_.times方法：<span id="s3"></span><br/><br/>
+    </div>
+    <div>
+      <h4>随机数</h4>
+        产生随机数pickRandomPerson方法：<span id='span1'>&nbsp;</span><br/><br/>
+        通过lodsh产生的随机数方法：<span id='span2'></span><br/><br/>
+        产生2个随机数的方法：<span id='span3'></span><br/>
+    </div>
+
+    <script src='js/loadsh.min.js'></script>
+    <script>
+//
+// 1. for循环
+var s1 = document.getElementById('s1');
+for(var i = 0; i < 5; i++) {
+    var html1 = s1.innerHTML;
+    html1 += 1;
+    s1.innerHTML = html1;
+}
+
+// 2. Array数组循环
+var s2 = document.getElementById('s2');
+Array.apply(null, Array(5)).forEach(function(){
+  var html2 = s2.innerHTML;
+  html2 += 1;
+  s2.innerHTML = html2;
+});
+
+// Lodash
+var s3 = document.getElementById('s3');
+_.times(5, function(){
+  var html3 = s3.innerHTML;
+  html3 += 1;
+  s3.innerHTML = html3;
+});
+
+
+
+var luckyDraw = ["Colin", "John", "James", "Lily", "Mary"];
+
+function pickRandomPerson(luckyDraw){
+  var index = Math.floor(Math.random() * (luckyDraw.length -1));
+  return luckyDraw[index];
+}
+
+document.getElementById('span1').innerHTML = pickRandomPerson(luckyDraw);
+
+
+// Lodash 产生随机数
+document.getElementById('span2').innerHTML = _.sample(luckyDraw); // Colin
+
+// Lodash - Getting 2 random item
+document.getElementById('span3').innerHTML = _.sample(luckyDraw, 3); // ['John','Lily']
+
+
+
+    </script>
+  </body>
+</html>
