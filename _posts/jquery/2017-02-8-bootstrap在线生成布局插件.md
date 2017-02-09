@@ -7,3 +7,5 @@ categories: jquery
 Bootstrap在线编辑可视化布局系统模板
 
 [Bootstrap在线可视化](http://www.bootcss.com/p/layoutit/)
+
+[Bootstrap表单构造器，在线生成代码](http://www.bootcss.com/p/bootstrap-form-builder/)
