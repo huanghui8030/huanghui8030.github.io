@@ -3,6 +3,7 @@ layout: post
 title:  "基于jquery的插件"
 date:   2013-02-07 15:12:19 +0800
 categories: jquery
+sort: 5
 ---
 
 这是2013年写的，基于jquery的插件。一直未修复，可能还要一些内容需要完善
