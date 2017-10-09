@@ -170,10 +170,13 @@ pre {
   .site-nav .menu-icon {
     display: none; }
   .site-nav .page-link {
-    color: #111;
-    line-height: 1.5; }
+    display: inline-block;
+    padding: 0 20px; }
     .site-nav .page-link:not(:last-child) {
-      margin-right: 20px; }
+      /*  margin-right: 20px; */ }
+  .site-nav .selected {
+    background: #7265e6;
+    color: #fff; }
   @media screen and (max-width: 600px) {
     .site-nav {
       position: absolute;
@@ -276,6 +279,15 @@ pre {
   list-style: none; }
   .post-list > li {
     margin-bottom: 30px; }
+  .post-list .post-meta {
+    width: 90px;
+    display: inline-block; }
+
+.post-category {
+  background: #7265e6;
+  color: #fff;
+  display: inline-block;
+  padding: 0px 4px; }
 
 .post-meta {
   font-size: 14px;
@@ -316,6 +328,65 @@ pre {
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
+
+.side-area {
+  overflow: hidden;
+  width: 220px;
+  background: #fff; }
+  .side-area ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    line-height: normal;
+    border: 1px solid #eee;
+    border-radius: 4px; }
+    .side-area ul li {
+      line-height: 1.5em; }
+      .side-area ul li ul {
+        display: none; }
+  .side-area a {
+    font-size: 14px;
+    display: block;
+    padding: 8px 15px;
+    border-bottom: none;
+    position: relative;
+    text-shadow: 0 1px 2px #eee;
+    color: #948aec;
+    transition: background 0.5s ease-out;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+    .side-area a:hover {
+      background: #e4e2fa;
+      text-decoration: none; }
+      .side-area a:hover .iconfont {
+        color: #aaa; }
+    .side-area a .iconfont {
+      color: #aaa;
+      position: absolute;
+      right: 12px;
+      top: 11px;
+      font-size: 12px;
+      line-height: 14px; }
+  .side-area .side-highlight a {
+    background: #FBFFD7;
+    text-shadow: none;
+    font-weight: bold; }
+    .side-area .side-highlight a:hover {
+      background: #FBFFD7; }
+  .side-area .selected, .side-area .selected:hover {
+    background: #7265e6;
+    color: #fff;
+    text-shadow: none; }
+  .side-area .side-title {
+    margin: 10px 0 0; }
+
+.side-loading {
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  border: 1px solid #ddd;
+  border-bottom: none; }
 
 /**
  * Syntax highlighting styles

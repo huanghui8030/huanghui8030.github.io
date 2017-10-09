@@ -1,13 +1,13 @@
 ---
 layout: page
-title: JavaScript
-permalink: /js/
+title: CSS
+permalink: /css/
 ---
 
 <div class="home">
 
     <ul class="post-list">
-        {% for post in site.categories.js %}
+        {% for post in site.categories.css %}
             <li>
             <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 

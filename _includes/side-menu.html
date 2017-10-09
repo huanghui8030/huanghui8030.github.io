@@ -1,91 +1,101 @@
 <div class="side-area">
+    {% if  site.categories.jquery %}
+        <h3 class="side-title">JQuery</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.jquery | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 
-    <ul>
-    {% assign _posts_array =  site.posts | sort: "order" %}
-    {% for node in _posts_array %}
-          <li>
-            <a href='{{node.url | prepend: site.baseurl }}'>
-              {{node.title}}
-            </a>
-          </li>
-    {% endfor %}
+    {% if  site.categories.js %}
+        <h3 class="side-title">Js</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.js | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if  site.categories.css %}
+        <h3 class="side-title">CSS</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.css | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 
 
-    </ul>
+    {% if  site.categories.html %}
+        <h3 class="side-title">Html</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.html | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if  site.categories.mocha %}
+        <h3 class="side-title">Mocha</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.mocha | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if  site.categories.webpack %}
+        <h3 class="side-title">Webpack</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.webpack | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    
+    {% if  site.categories.study %}
+        <h3 class="side-title">其他</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.study | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
 </div>
-
-
-<style>
-
-
-.side-area {
-    overflow: hidden;
-    width: 220px;
-    background: #fff;
-
-}
-
-.side-area ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    line-height: normal;
-    border: 1px solid #eee;
-    border-radius: 4px;
-}
-
-  .side-area ul li{
-    line-height: 1.5em;
-  }
-.side-area ul li ul {
-    display: none;
-}
-
-.side-area .side-highlight a {
-    background: #FBFFD7;
-    text-shadow: none;
-    font-weight: bold;
-}
-
-.side-area .side-highlight a:hover {
-    background: #FBFFD7;
-}
-
-.side-loading {
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
-    border: 1px solid #ddd;
-    border-bottom: none;
-}
-
-.side-area a {
-    font-size: 14px;
-    display: block;
-    padding: 8px 15px;
-    border-bottom: none;
-    position: relative;
-    text-shadow: 0 1px 2px #eee;
-    color: #55acee;
-    transition: background 0.5s ease-out;
-}
-
-.side-area a .iconfont {
-    color: #aaa;
-    position: absolute;
-    right: 12px;
-    top: 11px;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.side-area a:hover {
-    background: #f8f8f8;
-    text-decoration: none;
-}
-
-.side-area a:hover .iconfont {
-    color: #aaa;
-}
-
-</style>

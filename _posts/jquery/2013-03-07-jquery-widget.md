@@ -10,8 +10,8 @@ sort: 5
 
 ## 小游戏
 
-- [自定义滚动条minScroll](/_widget/minScrollbar/demo.html)
+- [自定义滚动条minScroll](/widget/minScrollbar/demo.html)
 
-- [图片大小自定义插件formatImage](/_widget/fomatImage/demo.html)
+- [图片大小自定义插件formatImage](/widget/fomatImage/demo.html)
 
-- [阅读模式readModel](/_widget/readModel/demo.html)
+- [阅读模式readModel](/widget/readModel/demo.html)

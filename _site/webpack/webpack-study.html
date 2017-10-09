@@ -24,18 +24,10 @@
     <a class="site-title" href="/">常用知识总结</a>
 
     <nav class="site-nav">
-      <a href="#" class="menu-icon">
-        <svg viewBox="0 0 18 15">
-          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
-        </svg>
-      </a>
-
       <div class="trigger">
         
           
-          <a class="page-link" href="/jquery/todo/index.html">JQuery</a>
+          <a class="page-link" href="/jquery/">JQuery</a>
           
         
           
@@ -43,13 +35,21 @@
           
         
           
-          <a class="page-link" href="/about/">关于</a>
+          <a class="page-link" href="/css/">CSS</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/html/">Html</a>
           
         
           
         
           
         
+          
+          <a class="page-link" href="/mocha/">Mocha</a>
           
         
       </div>
@@ -58,6 +58,26 @@
   </div>
 
 </header>
+
+<script src="/js/1.8.3/jquery.min.js"></script>
+<script>
+    $(function(){
+        var href = window.location.href;
+        $('.side-area a').each(function(index,ele){
+            if(href.indexOf($(ele).attr('href'))>-1){
+                $(ele).addClass('selected');
+                return false;
+            }
+        })
+        $('.trigger a').each(function(index,ele){
+             if(href.indexOf($(ele).attr('href'))>-1){
+                $(ele).addClass('selected');
+                return false;
+            }
+        }) 
+    })
+</script>
+
 
 
     <div class="page-content">
@@ -72,168 +92,160 @@
     margin-left: 260px;
   }
 </style>
-<!-- <div class="banner-block ui-banner">
-  <div class="banner-mask">
-    <div class="page-summary">
-      <h1>jquery </h1>
-      <p></p>
-    </div>
-  </div>
-</div> -->
-
+<base target="_blank" />
 <div class="post">
   <div class="ui">
    <div class="side-left"><div class="side-area">
+    
+        <h3 class="side-title">JQuery</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/jquery/bootstrap-zxscbj.html'>
+                  bootstrap在线生成布局插件
+                </a>
+              </li>
+        
+              <li>
+                <a href='/jquery/jquery-widget.html'>
+                  基于jquery的插件
+                </a>
+              </li>
+        
+        </ul>
+    
 
-    <ul>
     
+        <h3 class="side-title">Js</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/js/js-game.html'>
+                  原生js小游戏
+                </a>
+              </li>
+        
+        </ul>
     
-          <li>
-            <a href='/study/all.html'>
-              前端知识汇总
-            </a>
-          </li>
+
     
-          <li>
-            <a href='/html/meta-sydq.html'>
-              Meta用法总结
-            </a>
-          </li>
-    
-          <li>
-            <a href='/html/svg-demo.html'>
-              svg画图
-            </a>
-          </li>
-    
-          <li>
-            <a href='/webpack/webpack-study.html'>
-              webpack学习参考资料
-            </a>
-          </li>
-    
-          <li>
-            <a href='/jquery/bootstrap-zxscbj.html'>
-              bootstrap在线生成布局插件
-            </a>
-          </li>
-    
-          <li>
-            <a href='/css7/css-base.html'>
-              基础样式_base.less
-            </a>
-          </li>
-    
-          <li>
-            <a href='/study/study-ppt.html'>
-              课题研究ppt
-            </a>
-          </li>
-    
-          <li>
-            <a href='/html/html-demo.html'>
-              html5模板
-            </a>
-          </li>
-    
-          <li>
-            <a href='/javascript/js-game.html'>
-              原生js小游戏
-            </a>
-          </li>
-    
-          <li>
-            <a href='/jquery/jquery-widget.html'>
-              基于jquery的插件
-            </a>
-          </li>
+        <h3 class="side-title">CSS</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/css/css-word-break.html'>
+                  文本省略显示
+                </a>
+              </li>
+        
+              <li>
+                <a href='/css/css-btn.html'>
+                  去掉按钮点击后的虚线框样式
+                </a>
+              </li>
+        
+              <li>
+                <a href='/css/css-base.html'>
+                  基础样式_base.less
+                </a>
+              </li>
+        
+        </ul>
     
 
 
-    </ul>
+    
+        <h3 class="side-title">Html</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/html/a-target.html'>
+                  a标签新开的方法
+                </a>
+              </li>
+        
+              <li>
+                <a href='/html/meta-sydq.html'>
+                  Meta用法总结
+                </a>
+              </li>
+        
+              <li>
+                <a href='/html/svg-demo.html'>
+                  svg画图
+                </a>
+              </li>
+        
+              <li>
+                <a href='/html/html-demo.html'>
+                  html5模板
+                </a>
+              </li>
+        
+        </ul>
+    
+    
+    
+        <h3 class="side-title">Mocha</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/mocha/mocha-study.html'>
+                  单元测试框架Mocha
+                </a>
+              </li>
+        
+        </ul>
+    
+
+    
+        <h3 class="side-title">Webpack</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/webpack/webpack-study.html'>
+                  webpack学习参考资料
+                </a>
+              </li>
+        
+        </ul>
+    
+    
+    
+        <h3 class="side-title">其他</h3>
+        <ul>
+        
+        
+              <li>
+                <a href='/study/all.html'>
+                  前端知识汇总
+                </a>
+              </li>
+        
+              <li>
+                <a href='/study/study-ppt.html'>
+                  课题研究ppt
+                </a>
+              </li>
+        
+        </ul>
+    
+
 </div>
-
-
-<style>
-
-
-.side-area {
-    overflow: hidden;
-    width: 220px;
-    background: #fff;
-
-}
-
-.side-area ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    line-height: normal;
-    border: 1px solid #eee;
-    border-radius: 4px;
-}
-
-  .side-area ul li{
-    line-height: 1.5em;
-  }
-.side-area ul li ul {
-    display: none;
-}
-
-.side-area .side-highlight a {
-    background: #FBFFD7;
-    text-shadow: none;
-    font-weight: bold;
-}
-
-.side-area .side-highlight a:hover {
-    background: #FBFFD7;
-}
-
-.side-loading {
-    height: 100px;
-    text-align: center;
-    line-height: 100px;
-    border: 1px solid #ddd;
-    border-bottom: none;
-}
-
-.side-area a {
-    font-size: 14px;
-    display: block;
-    padding: 8px 15px;
-    border-bottom: none;
-    position: relative;
-    text-shadow: 0 1px 2px #eee;
-    color: #55acee;
-    transition: background 0.5s ease-out;
-}
-
-.side-area a .iconfont {
-    color: #aaa;
-    position: absolute;
-    right: 12px;
-    top: 11px;
-    font-size: 12px;
-    line-height: 14px;
-}
-
-.side-area a:hover {
-    background: #f8f8f8;
-    text-decoration: none;
-}
-
-.side-area a:hover .iconfont {
-    color: #aaa;
-}
-
-</style>
 </div>
     <article class="ui-post" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">webpack学习参考资料</h1>
-        <p class="post-meta">
-          </p>
+        <span class="post-meta">
+          Feb 8, 2017
+          
+        </span>
       </header>
       <div class="post-content" itemprop="articleBody">
         <p>Webpack 是前端资源模块化管理和打包工具</p>
@@ -254,23 +266,6 @@
     </div>
 </div>
 
-<script type="text/javascript">
-  $('span.collapse').on('click', function () {
-    var code = $(this).parents(".code-box").find('.code-box-highlight');
-    if (code.is(':hidden')) {
-      code.animate({
-        opacity: 1,
-        height: 'toggle'
-      }, 200);
-    } else {
-      code.animate({
-        opacity: 0,
-        height: 'toggle'
-      }, 200);
-    }
-  });
-</script>
-
       </div>
     </div>
 
@@ -285,7 +280,7 @@
         <ul class="contact-list">
           <li>常用知识总结</li>
           <li>
-              <a href="mailto:huanghui8030@qq.com">huanghui8030@qq.com</a>
+              <a href="mailto:huanghui8030#qq.com">huanghui8030#qq.com</a>
           </li>
         </ul>
       </div>

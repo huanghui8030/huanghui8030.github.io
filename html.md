@@ -1,13 +1,13 @@
 ---
 layout: page
-title: JavaScript
-permalink: /js/
+title: Html
+permalink: /html/
 ---
 
 <div class="home">
 
     <ul class="post-list">
-        {% for post in site.categories.js %}
+        {% for post in site.categories.html %}
             <li>
             <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
 
@@ -19,4 +19,3 @@ permalink: /js/
         {% endfor %}
     </ul>
 </div>
-

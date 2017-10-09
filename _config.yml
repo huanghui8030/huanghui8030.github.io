@@ -8,7 +8,7 @@
 # Site settings
 theme: jekyll-theme-minimal
 title: 常用知识总结
-email: huanghui8030@qq.com
+email: huanghui8030#qq.com
 description: > # this means to ignore newlines until "baseurl:"
   不断尝试和学习新知识！总结，总结，总结！
 baseurl: "" # the subpath of your site, e.g. /blog

@@ -33,13 +33,16 @@
     }
 
     .page-link {
-        color: $text-color;
-        line-height: $base-line-height;
-
+        display: inline-block;
+        padding: 0 20px;
         // Gaps between nav items, but not on the last one
         &:not(:last-child) {
-            margin-right: 20px;
+           /*  margin-right: 20px; */
         }
+    }
+    .selected{
+        background: $purple-color;
+        color: $white-color;
     }
 
     @include media-query($on-palm) {
@@ -183,8 +186,18 @@
     > li {
         margin-bottom: $spacing-unit;
     }
-}
+    .post-meta{
+        width:90px;
+        display: inline-block;
+    }
 
+}
+.post-category{
+    background:$purple-color;
+    color:$white-color;
+    display:inline-block;
+    padding: 0px 4px;
+}
 .post-meta {
     font-size: $small-font-size;
     color: $grey-color;
@@ -202,7 +215,7 @@
  */
 .post-header {
     margin-bottom: $spacing-unit;
-}
+} 
 
 .post-title {
     font-size: 42px;
@@ -240,4 +253,76 @@
             font-size: 18px;
         }
     }
+}
+//左侧菜单选中
+.side-area {
+    overflow: hidden;
+    width: 220px;
+    background: #fff;
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        line-height: normal;
+        border: 1px solid #eee;
+        border-radius: 4px;
+        li{
+            line-height: 1.5em;
+            ul {
+                display: none;
+            }
+          }
+    }
+    a{
+        font-size: 14px;
+        display: block;
+        padding: 8px 15px;
+        border-bottom: none;
+        position: relative;
+        text-shadow: 0 1px 2px #eee;
+        color: #948aec;
+        transition: background 0.5s ease-out;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:hover {
+            background:#e4e2fa;
+            text-decoration: none;
+            .iconfont {
+                color: #aaa;
+            }
+        }
+        .iconfont {
+            color: #aaa;
+            position: absolute;
+            right: 12px;
+            top: 11px;
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+    .side-highlight a {
+        background: #FBFFD7;
+        text-shadow: none;
+        font-weight: bold;
+        &:hover {
+            background: #FBFFD7;
+        }
+    }
+    .selected,.selected:hover{
+        background: #7265e6;
+        color: #fff;
+        text-shadow:none;
+    }
+    .side-title{
+        margin: 10px 0 0;
+    }
+}
+
+.side-loading {
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border: 1px solid #ddd;
+    border-bottom: none;
 }
