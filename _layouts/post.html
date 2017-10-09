@@ -11,7 +11,7 @@ layout: default
     margin-left: 260px;
   }
 </style>
-<base target="_blank" />
+<!-- <base target="_blank" /> -->
 <div class="post">
   <div class="ui">
    <div class="side-left">{% include side-menu.html %}</div>
@@ -31,3 +31,10 @@ layout: default
     <div style="clear:both; font-size:0;"></div>
     </div>
 </div>
+<script>
+    $(function(){
+        $('.ui-post a').each(function(index,ele){
+            $(ele).attr('target','_blank');
+        })
+    })
+</script>
