@@ -19,7 +19,7 @@
             line-height: 20px;  
             color: #d8d8d8;  
         }  
-        input[type=radio]:after  {  
+        input[type=radio]::after  {  
             content: "";  
             display:block;  
             width: 20px;  
@@ -34,7 +34,7 @@
             box-sizing:border-box;  
         }  
           
-        input[type=checkbox]:after  {  
+        input[type=checkbox]::after  {  
             content: "";  
             display:block;  
             width: 20px;  
@@ -47,19 +47,19 @@
             background-color: #fff;  
             box-sizing:border-box;  
         }  
-        input[type=checkbox]:checked:after  {  
+        input[type=checkbox]:checked::after  {  
              content: "\2713";  
             border-color: #37AF6E;  
             background-color: #37AF6E;
         } 
-        
-        #mycheck1:checked:after  {  
+
+        #mycheck1:checked::after  {  
              content: "\2714";  
             border-color: #37AF6E;  
             background-color: #37AF6E;
         } 
           
-        input[type=radio]:checked:after  {  
+        input[type=radio]:checked::after  {  
             content: "L";  
             transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0); 
             -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
@@ -68,7 +68,7 @@
             border-color: #37AF6E;  
             background-color: #37AF6E;  
         }
-        #myRadio1:checked:after{
+        #myRadio1:checked::after{
             content: "\2022";  
             font-size: 22px;
             border-color: #37AF6E;  

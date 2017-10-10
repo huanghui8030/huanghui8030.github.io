@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "纯CSS美化radio/checkbox样式"
+title:  "纯CSS美化radio/checkbox样式（兼容IE9+）"
 date:   2017-10-10 14:01:19  +0800
 categories: css
 sort: 8
@@ -85,5 +85,9 @@ input[type=radio]:checked:after  {
 
 ```
 
+
+- :checked，css3选择器匹配每个选中的输入元素（仅适用于单选按钮或复选框）。兼容ie9+
+- appearance，css3属性，不支持ie，但不影响使用
+- transform，css3属性，兼容ie9+
 
 具体见[demo](/widget/css/checkbox.html)
