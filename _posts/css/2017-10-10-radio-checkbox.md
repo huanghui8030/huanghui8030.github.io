@@ -18,7 +18,9 @@ input[type=radio],input[type=checkbox]  {
     width: 20px;  
     height: 20px;  
     margin-left: 5px;  
+    appearance: none; /**css3属性，不支持ie，但不影响使用**/
     -webkit-appearance: none;  
+    -moz-appearance: none;  
     background-color: transparent;  
     border: 0;  
     outline: 0 !important;  
@@ -54,17 +56,31 @@ input[type=checkbox]:after  {
     box-sizing:border-box;  
 }  
 input[type=checkbox]:checked:after  {  
-    content: "\2713";  
+     content: "\2713";  
     border-color: #37AF6E;  
     background-color: #37AF6E;
-}  
+} 
+
+#mycheck1:checked:after  {  
+     content: "\2714";  
+    border-color: #37AF6E;  
+    background-color: #37AF6E;
+} 
   
 input[type=radio]:checked:after  {  
     content: "L";  
-    transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);  //IE9+
-    -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);  
+    transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0); 
+    -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+    -ms-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);  /*兼容ie9+ */
+    -moz-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);  /*兼容ie9+ */
     border-color: #37AF6E;  
     background-color: #37AF6E;  
+}
+#myRadio1:checked:after{
+    content: "\2022";  
+    font-size: 22px;
+    border-color: #37AF6E;  
+    background-color: #37AF6E; 
 }
 
 ```
