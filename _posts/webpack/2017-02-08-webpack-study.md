@@ -3,7 +3,7 @@ layout: post
 title:  "webpack学习参考资料"
 date:   2017-02-08 16:42:19 +0800
 categories: webpack
-sort: 2
+sort: 14
 ---
 Webpack 是前端资源模块化管理和打包工具
 

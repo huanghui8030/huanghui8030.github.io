@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>css3实现checkbox</title>
+    <style>
+        input[type=radio],input[type=checkbox]  {  
+            display: inline-block;  
+            vertical-align: middle;  
+            width: 20px;  
+            height: 20px;  
+            margin-left: 5px;  
+            appearance: none; /**css3属性，不支持ie和opera**/
+            -webkit-appearance: none;  
+            -moz-appearance: none;  
+            background-color: transparent;  
+            border: 0;  
+            outline: 0 !important;  
+            line-height: 20px;  
+            color: #d8d8d8;  
+        }  
+        input[type=radio]:after  {  
+            content: "";  
+            display:block;  
+            width: 20px;  
+            height: 20px;  
+            border-radius: 50%;  
+            text-align: center;  
+            line-height: 14px;  
+            font-size: 16px;  
+            color: #fff;  
+            border: 2px solid #ddd;  
+            background-color: #fff;  
+            box-sizing:border-box;  
+        }  
+          
+        input[type=checkbox]:after  {  
+            content: "";  
+            display:block;  
+            width: 20px;  
+            height: 20px;  
+            text-align: center;  
+            line-height: 14px;  
+            font-size: 16px;  
+            color: #fff;  
+            border: 2px solid #ddd;  
+            background-color: #fff;  
+            box-sizing:border-box;  
+        }  
+        input[type=checkbox]:checked:after  {  
+             content: "\2713";  
+            border-color: #37AF6E;  
+            background-color: #37AF6E;
+        } 
+        #mycheck1:checked:after  {  
+             content: "\2714";  
+            border-color: #37AF6E;  
+            background-color: #37AF6E;
+        } 
+          
+        input[type=radio]:checked:after  {  
+            content: "L";  
+            transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0); 
+            -webkit-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);
+            -ms-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);  /*兼容ie9+ */
+            -moz-transform:matrix(-0.766044,-0.642788,-0.642788,0.766044,0,0);  /*兼容ie9+ */
+            border-color: #37AF6E;  
+            background-color: #37AF6E;  
+        }
+        #myRadio1:checked:after{
+            content: "\2022";  
+            font-size: 22px;
+            border-color: #37AF6E;  
+            background-color: #37AF6E; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <p>
+        <input type="radio" name="myRadio" id="myRadio1" value='0'/>
+        <label for="myRadio1">myRadio测试1</label>
+    
+        <input type="radio" name="myRadio" id="myRadio2" value='1' />
+        <label for="myRadio2">myRadio测试2</label>
+    
+        <input type="radio" name="myRadio" id="myRadio3" value='3' />
+        <label for="myRadio3">myRadio测试3</label>
+    </p>  
+
+    <p>
+        <input type="checkbox" name="myCheck1" id="mycheck1" />
+        <label for="myCheck1">myCheck测试1</label>
+
+        <input type="checkbox" name="myCheck2" id="mycheck2" />
+        <label for="mycheck2">myCheck测试2</label>
+
+        <input type="checkbox" name="myCheck3" id="mycheck3" />
+        <label for="mycheck3">myCheck测试3</label>
+    </p>   
+</body>
+</html>

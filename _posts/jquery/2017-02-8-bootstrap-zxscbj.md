@@ -3,7 +3,7 @@ layout: post
 title:  "bootstrap在线生成布局插件"
 date:   2017-02-08 16:42:19 +0800
 categories: jquery
-sort: 6
+sort: 11
 ---
 Bootstrap在线编辑可视化布局系统模板
 
