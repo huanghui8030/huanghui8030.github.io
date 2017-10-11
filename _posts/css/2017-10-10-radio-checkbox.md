@@ -11,7 +11,7 @@ sort: 8
 > 注意： IE8只有指定!DOCTYPE才支持Content属性。
 
 
-```
+```css
 input[type=radio],input[type=checkbox]  {  
     display: inline-block;  
     vertical-align: middle;  
@@ -82,12 +82,13 @@ input[type=radio]:checked:after  {
     border-color: #37AF6E;  
     background-color: #37AF6E; 
 }
-
 ```
 
 
 - :checked，css3选择器匹配每个选中的输入元素（仅适用于单选按钮或复选框）。兼容ie9+
 - appearance，css3属性，不支持ie，但不影响使用
 - transform，css3属性，兼容ie9+
+
+
 
 具体见[demo](/widget/css/checkbox.html)
