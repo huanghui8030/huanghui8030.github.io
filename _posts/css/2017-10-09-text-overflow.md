@@ -4,7 +4,7 @@ title:  "文本省略显示"
 date:   2017-10-09 16:12:19  +0800
 description: 单行和多行文本省略显示方法
 categories: css
-sort: 7
+sort: 0304
 ---
 
 文本省略显示分两种：单行和多行。

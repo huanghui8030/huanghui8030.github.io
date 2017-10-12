@@ -3,7 +3,7 @@ layout: post
 title:  "纯CSS美化radio/checkbox样式（兼容IE9+）"
 date:   2017-10-10 14:01:19  +0800
 categories: css
-sort: 8
+sort: 0306
 ---
 
 利用伪元素::before给label添加样式，利用CSS3的伪类选择器:checked，:hover，:focus，:disabled设置不用状态的样式。
