@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<title>日历显示</title>
+<link href='lib/fullcalendar.min.css' rel='stylesheet' />
+<link href='lib/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+<link href='scheduler.min.css' rel='stylesheet' />
+<script src='lib/moment.min.js'></script>
+<script src='lib/jquery.min.js'></script>
+<script src='lib/fullcalendar.min.js'></script>
+<script src='scheduler.min.js'></script>
+<script>
+
+    $(function() { // document ready
+
+        $('#calendar').fullCalendar({
+            buttonText: {
+                today: '今天',
+                month: '月视图',
+                week: '周视图',
+                day: '日视图'
+            },
+            allDayText: "全天",
+            weekMode: "variable",
+            columnFormat: 'dddd',
+            titleFormat:'YYYY年 MMMM月D日',
+            monthNames: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"],
+            dayNames: ["星期天", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+            /*****  以上为国际化  *****/
+            now: '2017-10-07',
+            aspectRatio: 2,
+            scrollTime: '00:00', 
+            header: {
+                left: 'today prev,next',
+                center: 'title',
+                right: ''
+            },
+            defaultView: 'month',
+            views: {
+                timelineThreeDays: {
+                    type: 'timeline',
+                    duration: { days: 3 }
+                }
+            },
+            resources: [
+                { id: 'a', title: '假', eventColor: 'green' },
+                { id: 'b', title: '休', eventColor: 'orange' }
+            ],
+            events: [
+                { resourceId: 'a', start: '2017-10-07', end: '2017-10-07', title: '假期' },
+                { resourceId: 'b', start: '2017-10-07', end: '2017-10-07', title: '工作日' },
+                { resourceId: 'a', start: '2017-10-06', end: '2017-10-08', title: '国庆节' }
+            ]
+        });
+    });
+    var dataArr = [
+                { resourceId: 'a', start: '2017-10-03', end: '2017-10-04', title: '假期2' },
+                { resourceId: 'b', start: '2017-10-17', end: '2017-10-18', title: '工作日2' },
+                { resourceId: 'b', start: '2017-10-20', end: '2017-10-21', title: '国庆节2' }
+            ];
+
+    $(function(){
+         $('#calendar').fullCalendar('addEventSource',dataArr);
+    })
+
+</script>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        font-size: 14px;
+    }
+
+    #calendar {
+        max-width: 900px;
+        margin: 50px auto;
+    }
+
+</style>
+</head>
+<body>
+
+    <div id='calendar'></div>
+
+</body>
+</html>
