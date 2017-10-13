@@ -15,21 +15,21 @@ ul, li {
     list-style: none;
 }
 
-.calendar {
+.holidayCalendar {
     display: none;
-    width: 350px;
+    width: 322px;
     padding: 10px;
     margin: 30px auto 0;
     background-color: #fafafa;
     border-radius: 6px;
 }
-.calendar-title {
+.holidayCalendar-title {
     position: relative;
     height: 30px;
     line-height: 30px;
     padding: 10px 0;
 }
-.calendar-title a.title {
+.holidayCalendar-title a.title {
     display: inline-block;
     font-size: 26px;
     text-indent: 10px;
@@ -47,13 +47,13 @@ ul, li {
     background-color: #44b549;
     font-size: 18px;
 }
-.calendar-title .arrow {
+.holidayCalendar-title .arrow {
     position: absolute;
     top: 10px;
     right: 0;
     width: 50px;
 }
-.calendar-title .arrow span {
+.holidayCalendar-title .arrow span {
     color: #ddd;
     font-size: 26px;
     cursor: pointer;
@@ -64,60 +64,61 @@ ul, li {
     -o-user-select: none;
     user-select: none;
 }
-.calendar-title .arrow span:hover {
+.holidayCalendar-title .arrow span:hover {
     color: #888;
 }
-.calendar-title .arrow .arrow-disabled:hover {
+.holidayCalendar-title .arrow .arrow-disabled:hover {
     color: #ddd;
     cursor: no-drop;
 }
-.calendar-title .arrow-prev {
+.holidayCalendar-title .arrow-prev {
     float: left;
 }
-.calendar-title .arrow-next {
+.holidayCalendar-title .arrow-next {
     float: right;
 }
-.calendar-week,
-.calendar-date {
+.holidayCalendar-week,
+.holidayCalendar-date {
     overflow: hidden;
 }
-.calendar-week .item,
-.calendar-date .item {
+.holidayCalendar-week .item,
+.holidayCalendar-date .item {
     float: left;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+    width: 46px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
 }
-.calendar-week {
+.holidayCalendar-week {
     padding-bottom: 6px;
     border-bottom: 1px solid #44b549;
     font-weight: bold;
     font-size: 16px;
 }
-.calendar-date {}
-.calendar-date .item {
+.holidayCalendar-date {}
+.holidayCalendar-date .item {
     cursor: pointer;
     font-size: 14px;
     border-bottom: 1px solid #ccc;
 }
-.calendar-date .item:hover,
-.calendar-date .item-curMonth:hover {
+.holidayCalendar-date .item:hover,
+.holidayCalendar-date .item-curMonth:hover {
     background-color: #f0f0f0;
 }
-.calendar-date .item-curMonth {
+.holidayCalendar-date .item-curMonth {
     color: #333;
 }
-.calendar-date .item-curDay,
-.calendar-date .item-curDay:hover {
+.holidayCalendar-date .item-curDay,
+.holidayCalendar-date .item-curDay:hover {
     color: #fff;
     background-color: #44b549;
 }
-.calendar-date .item-holiday {
+.holidayCalendar-date .item-holiday {
     color: #e02d2d;
     position:relative;
+    background-color:#fff0f0;
 }
-.calendar-date .item-holiday:after {
+.holidayCalendar-date .item-holiday:after {
     content: '休';
     position: absolute;
     left: 0;
@@ -132,11 +133,11 @@ ul, li {
     line-height: 14px;
     overflow: hidden;
 }
-.calendar-date .item-workingDay {
+.holidayCalendar-date .item-workingDay {
     background-color: #f5f5f5;
     position:relative;
 }
-.calendar-date .item-workingDay:after {
+.holidayCalendar-date .item-workingDay:after {
     content: '班';
     opacity: .5;
     position: absolute;
@@ -152,7 +153,7 @@ ul, li {
     line-height: 14px;
     overflow: hidden;
 }
-.calendar-today {
+.holidayCalendar-today {
     display: none;
     opacity: 0;
     position: absolute;
@@ -164,7 +165,7 @@ ul, li {
     background-color: #44b549;
     border-radius: 5px;
 }
-.calendar-today .triangle {
+.holidayCalendar-today .triangle {
     position: absolute;
     top: 50%;
     left: -16px;
@@ -173,7 +174,7 @@ ul, li {
     border-style: solid;
     border-color: transparent #44b549 transparent transparent;
 }
-.calendar-today p {
+.holidayCalendar-today p {
     color: #fff;
     font-size: 14px;
     line-height: 24px;

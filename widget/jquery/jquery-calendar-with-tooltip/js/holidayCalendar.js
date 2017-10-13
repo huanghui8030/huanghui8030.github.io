@@ -1,26 +1,35 @@
-;
-(function($, window, document, undefined) {
-
-    var Calendar = function(elem, options) {
+/**
+ * 休息日设置日历插件
+ * 用法： $('#calendar').holidayCalendar();
+ * 参数列表如下：
+ *  ifCurrYear: true, //是否只显示当年的日历，超出后不可点击，需要设置
+    switchMonth: true,// 是否切换月份
+    hoverDate: false,// hover是否显示当天信息
+    backToday: true,// 是否返回当天
+    holidayArray:[],//休息日列表默认不填写时为正常周末，格式为：20171013
+    workingDayArray:[]//加班列表，格式为：20171013
+ * huangh  20171013
+ */
+;(function($, window, document, undefined) {
+    var HolidayCalendar = function(elem, options) {
         this.$calendar = elem;
-
+        // 关于月份： 在设置时要-1，使用时要+1
         this.defaults = {
-            ifSwitch: true,// 是否切换月份
+            ifCurrYear: true, //是否只显示当年的日历
+            switchMonth: true,// 是否切换月份
             hoverDate: true,// hover是否显示当天信息
             backToday: true,// 是否返回当天
-            holidayArray:[],//默认不填写时为正常周末
-            workingDayArray:[]//
+            holidayArray:[],//休息日列表默认不填写时为正常周末
+            workingDayArray:[]//加班列表
         };
 
         this.opts = $.extend({}, this.defaults, options);
-
-        // console.log(this.opts);
     };
 
-    Calendar.prototype = {
+    HolidayCalendar.prototype = {
         showHoverInfo: function(obj) { // hover 时显示当天信息
             var _dateStr = $(obj).attr('data');
-            var offset_t = $(obj).offset().top + (this.$calendar_today.height() - $(obj).height()) / 2;
+            var offset_t = $(obj).offset().top - 10;
             var offset_l = $(obj).offset().left + $(obj).width();
             var changeStr = _dateStr.substr(0, 4) + '-' + _dateStr.substr(4, 2) + '-' + _dateStr.substring(6);
             var _week = changingStr(changeStr).getDay();
@@ -72,37 +81,39 @@
 
             this.$calendarDate_item.each(function(i) {
                 // allDay: 得到当前列表显示的所有天数
-                var allDay = new Date(year, month - 1, i + 1 - firstDay.getDay());
-                var allDay_str = returnDateStr(allDay);
+                var allDay = new Date(year, month - 1, i + 1 - firstDay.getDay()) , 
+                    allDay_str = returnDateStr(allDay) ,
+                    $itemThis = $(this);
 
-                $(this).text(allDay.getDate()).attr('data', allDay_str);
+                $itemThis.text(allDay.getDate()).attr('data', allDay_str);
                 if (returnDateStr(new Date()) === allDay_str) {
-                    $(this).attr('class', 'item item-curDay');
+                    $itemThis.attr('class', 'item item-curDay');
                 } else if (returnDateStr(firstDay).substr(0, 6) === allDay_str.substr(0, 6)) {
-                    $(this).attr('class', 'item item-curMonth');
+                    $itemThis.attr('class', 'item item-curMonth');
                 } else {
-                    $(this).attr('class', 'item');
+                    $itemThis.attr('class', 'item');
                 }
+
                 //设置所有周末为假期
                 var day = allDay.getDay();
                 if(day === 6 || day === 0){
-                    $(this).addClass('item-holiday');
+                    $itemThis.addClass('item-holiday');
                 }
                 if(opts.holidayArray.indexOf(parseInt(allDay_str))>-1){
-                    $(this).addClass('item-holiday');
+                    $itemThis.addClass('item-holiday');
                 }
                 if(opts.workingDayArray.indexOf(parseInt(allDay_str))>-1){
-                    $(this).removeClass('item-holiday');
+                    $itemThis.removeClass('item-holiday');
                 }
 
             });
         },
 
         renderDOM: function() { // 渲染DOM
-            this.$calendar_title = $('<div class="calendar-title"></div>');
-            this.$calendar_week = $('<ul class="calendar-week"></ul>');
-            this.$calendar_date = $('<ul class="calendar-date"></ul>');
-            this.$calendar_today = $('<div class="calendar-today"></div>');
+            this.$calendar_title = $('<div class="holidayCalendar-title"></div>');
+            this.$calendar_week = $('<ul class="holidayCalendar-week"></ul>');
+            this.$calendar_date = $('<ul class="holidayCalendar-date"></ul>');
+            this.$calendar_today = $('<div class="holidayCalendar-today"></div>');
 
 
             var _titleStr = '<a href="#" class="title"></a>' +
@@ -157,38 +168,44 @@
 
             this.showCalendar(this.opts);
 
-            if (this.opts.ifSwitch) {
-                this.$arrow_prev.bind('click', function() {
+            if (self.opts.switchMonth) {
+                self.$arrow_prev.bind('click', function() {
                     var _date = dateObj.getDate() ,
                         _month = _date.getMonth() - 1 ,
                         _$this = $(this);
-                    if(_month == -1){
-                        return false;
+                    if(self.opts.ifCurrYear){
+                        if(_month == -1){
+                            return false;
+                        }
+                        if(_month == 0){
+                            _$this.addClass('arrow-disabled');
+                        }else{
+                            _$this.removeClass('arrow-disabled');
+                        }
+                        _$this.next('.arrow-next').removeClass('arrow-disabled');
                     }
-                    if(_month == 0){
-                        _$this.addClass('arrow-disabled');
-                    }else{
-                        _$this.removeClass('arrow-disabled');
-                    }
-                    _$this.next('.arrow-next').removeClass('arrow-disabled');
+                    
                     dateObj.setDate(new Date(_date.getFullYear(), _month , 1));
 
                     self.showCalendar(self.opts);
                 });
 
-                this.$arrow_next.bind('click', function() {
+                self.$arrow_next.bind('click', function() {
                     var _date = dateObj.getDate() , 
                         _month =  _date.getMonth() + 1 ,
                         _$this = $(this);
-                    if(_month == 12){
-                        return false;
+                    if(self.opts.ifCurrYear){
+                        if(_month == 12){
+                            return false;
+                        }
+                        if(_month == 11){
+                            _$this.addClass('arrow-disabled');
+                        }else{
+                            _$this.removeClass('arrow-disabled');
+                        }
+                        _$this.prev('.arrow-prev').removeClass('arrow-disabled');
                     }
-                    if(_month == 11){
-                        _$this.addClass('arrow-disabled');
-                    }else{
-                        _$this.removeClass('arrow-disabled');
-                    }
-                    _$this.prev('.arrow-prev').removeClass('arrow-disabled');
+                    
                     dateObj.setDate(new Date(_date.getFullYear(),_month, 1));
 
                     self.showCalendar(self.opts);
@@ -198,16 +215,17 @@
             if (this.opts.backToday) {
                 this.$backToday.bind('click', function() {
                     if (!self.$calendarDate_item.hasClass('item-curDay')) {
-                         var _date = dateObj.getDate() , 
-                            _month =  _date.getMonth() + 1 ,
-                            _$arrow = $(this).next('.arrow');
-                        _$arrow.find('span').removeClass('arrow-disabled');
-                        if(_month==0){
-                            _$arrow.find('.arrow-prev').addClass('arrow-disabled');
-                        }else if(_month==11){
-                            _$arrow.find('.arrow-next').addClass('arrow-disabled');
+                        if(self.opts.ifCurrYear){
+                            var _date = dateObj.getDate() , 
+                                _month =  _date.getMonth() + 1 ,
+                                _$arrow = $(this).next('.arrow');
+                            _$arrow.find('span').removeClass('arrow-disabled');
+                            if(_month==0){
+                                _$arrow.find('.arrow-prev').addClass('arrow-disabled');
+                            }else if(_month==11){
+                                _$arrow.find('.arrow-next').addClass('arrow-disabled');
+                            }
                         }
-
                         dateObj.setDate(new Date());
 
                         self.showCalendar(self.opts);
@@ -215,20 +233,23 @@
                 });
             }
 
-            this.$calendarDate_item.hover(function() {
-                self.showHoverInfo($(this));
-            }, function() {
-                self.$calendar_today.css({ left: 0, top: 0 }).hide();
-            });
+            if(this.opts.hoverDate){
+                this.$calendarDate_item.hover(function() {
+                    self.showHoverInfo($(this));
+                }, function() {
+                    self.$calendar_today.css({ left: 0, top: 0 }).hide();
+                });
+            }
+            
         },
 
-        constructor: Calendar
+        constructor: HolidayCalendar
     };
 
-    $.fn.calendar = function(options) {
-        var calendar = new Calendar(this, options);
+    $.fn.holidayCalendar = function(options) {
+        var holidayCalendar = new HolidayCalendar(this, options);
 
-        return calendar.inital();
+        return holidayCalendar.inital();
     };
 
 
