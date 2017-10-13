@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>一款清新的jQuery日历插件DEMO演示</title>
+<title>基于jQuery日历插件DEMO演示</title>
 <link rel="stylesheet" href="css/calendar.css">
 </head>
 <body>
@@ -15,9 +15,8 @@
 $(function () {
     // 关于月份： 在设置时要-1，使用时要+1
     $('#calendar').calendar({
-        ifSwitch: true, // 是否切换月份
-        hoverDate: true, // hover是否显示当天信息
-        backToday: true // 是否返回当天
+        holidayArray:[20171001,20171002,20171003,20171004,20171005], //假期列表
+        workingDayArray :[20171014,20171021]
     });
 });
 </script>

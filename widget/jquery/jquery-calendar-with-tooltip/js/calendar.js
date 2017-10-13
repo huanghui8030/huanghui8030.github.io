@@ -5,9 +5,11 @@
         this.$calendar = elem;
 
         this.defaults = {
-            ifSwitch: true,
-            hoverDate: false,
-            backToday: false
+            ifSwitch: true,// 是否切换月份
+            hoverDate: true,// hover是否显示当天信息
+            backToday: true,// 是否返回当天
+            holidayArray:[],//默认不填写时为正常周末
+            workingDayArray:[]//
         };
 
         this.opts = $.extend({}, this.defaults, options);
@@ -59,14 +61,14 @@
             this.$calendarToday_week.text(_weekStr);
         },
 
-        showCalendar: function() { // 输入数据并显示
+        showCalendar: function(opts) { // 输入数据并显示
             var self = this;
             var year = dateObj.getDate().getFullYear();
             var month = dateObj.getDate().getMonth() + 1;
             var dateStr = returnDateStr(dateObj.getDate());
             var firstDay = new Date(year, month - 1, 1); // 当前月的第一天
 
-            this.$calendarTitle_text.text(year + '/' + dateStr.substr(4, 2));
+            this.$calendarTitle_text.text(year + '年' + dateStr.substr(4, 2)+'月');
 
             this.$calendarDate_item.each(function(i) {
                 // allDay: 得到当前列表显示的所有天数
@@ -74,7 +76,6 @@
                 var allDay_str = returnDateStr(allDay);
 
                 $(this).text(allDay.getDate()).attr('data', allDay_str);
-
                 if (returnDateStr(new Date()) === allDay_str) {
                     $(this).attr('class', 'item item-curDay');
                 } else if (returnDateStr(firstDay).substr(0, 6) === allDay_str.substr(0, 6)) {
@@ -82,6 +83,18 @@
                 } else {
                     $(this).attr('class', 'item');
                 }
+                //设置所有周末为假期
+                var day = allDay.getDay();
+                if(day === 6 || day === 0){
+                    $(this).addClass('item-holiday');
+                }
+                if(opts.holidayArray.indexOf(parseInt(allDay_str))>-1){
+                    $(this).addClass('item-holiday');
+                }
+                if(opts.workingDayArray.indexOf(parseInt(allDay_str))>-1){
+                    $(this).removeClass('item-holiday');
+                }
+
             });
         },
 
@@ -93,7 +106,7 @@
 
 
             var _titleStr = '<a href="#" class="title"></a>' +
-                '<a href="javascript:;" id="backToday">T</a>' +
+                '<a href="javascript:;" id="backToday">今</a>' +
                 '<div class="arrow">' +
                 '<span class="arrow-prev"><</span>' +
                 '<span class="arrow-next">></span>' +
@@ -142,32 +155,62 @@
             this.$calendarToday_date = this.$calendar_today.find('.date');
             this.$calendarToday_week = this.$calendar_today.find('.week');
 
-            this.showCalendar();
+            this.showCalendar(this.opts);
 
             if (this.opts.ifSwitch) {
                 this.$arrow_prev.bind('click', function() {
-                    var _date = dateObj.getDate();
+                    var _date = dateObj.getDate() ,
+                        _month = _date.getMonth() - 1 ,
+                        _$this = $(this);
+                    if(_month == -1){
+                        return false;
+                    }
+                    if(_month == 0){
+                        _$this.addClass('arrow-disabled');
+                    }else{
+                        _$this.removeClass('arrow-disabled');
+                    }
+                    _$this.next('.arrow-next').removeClass('arrow-disabled');
+                    dateObj.setDate(new Date(_date.getFullYear(), _month , 1));
 
-                    dateObj.setDate(new Date(_date.getFullYear(), _date.getMonth() - 1, 1));
-
-                    self.showCalendar();
+                    self.showCalendar(self.opts);
                 });
 
                 this.$arrow_next.bind('click', function() {
-                    var _date = dateObj.getDate();
+                    var _date = dateObj.getDate() , 
+                        _month =  _date.getMonth() + 1 ,
+                        _$this = $(this);
+                    if(_month == 12){
+                        return false;
+                    }
+                    if(_month == 11){
+                        _$this.addClass('arrow-disabled');
+                    }else{
+                        _$this.removeClass('arrow-disabled');
+                    }
+                    _$this.prev('.arrow-prev').removeClass('arrow-disabled');
+                    dateObj.setDate(new Date(_date.getFullYear(),_month, 1));
 
-                    dateObj.setDate(new Date(_date.getFullYear(), _date.getMonth() + 1, 1));
-
-                    self.showCalendar();
+                    self.showCalendar(self.opts);
                 });
             }
 
             if (this.opts.backToday) {
                 this.$backToday.bind('click', function() {
                     if (!self.$calendarDate_item.hasClass('item-curDay')) {
+                         var _date = dateObj.getDate() , 
+                            _month =  _date.getMonth() + 1 ,
+                            _$arrow = $(this).next('.arrow');
+                        _$arrow.find('span').removeClass('arrow-disabled');
+                        if(_month==0){
+                            _$arrow.find('.arrow-prev').addClass('arrow-disabled');
+                        }else if(_month==11){
+                            _$arrow.find('.arrow-next').addClass('arrow-disabled');
+                        }
+
                         dateObj.setDate(new Date());
 
-                        self.showCalendar();
+                        self.showCalendar(self.opts);
                     }
                 });
             }
@@ -210,8 +253,8 @@
         var month = date.getMonth() + 1;
         var day = date.getDate();
 
-        month = month < 9 ? ('0' + month) : ('' + month);
-        day = day < 9 ? ('0' + day) : ('' + day);
+        month = month <= 9 ? ('0' + month) : ('' + month);
+        day = day <= 9 ? ('0' + day) : ('' + day);
 
         return year + month + day;
     };
