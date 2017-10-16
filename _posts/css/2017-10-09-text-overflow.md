@@ -12,15 +12,33 @@ sort: 0304
 
 ### 1、单行文本框省略显示，全兼容
 
-```
-/* 块级元素中加入以下样式 */
-.div-block1{
-    width: 400px; 
-    overflow: hidden;
-    text-overflow: ellipsis;
+- div等块级元素
+
+  ```css
+   /* 块级元素中加入以下样式 */
+  .div-block1{    
+    width: 400px;     
+    overflow: hidden;    
+    text-overflow: ellipsis;    
     white-space: nowrap;
-}
-```
+  }
+  ```
+
+- table表格
+
+  ```css
+  /*tabl表格，省略显示*/
+  .table{
+     table-layout: fixed;
+  }
+  .table td{
+       overflow: hidden;    
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+  }
+  ```
+
+
 
 ### 2、多行文本框省略显示，目前仅支持webkit浏览器
 
