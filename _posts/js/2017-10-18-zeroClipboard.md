@@ -15,6 +15,11 @@ sort: 0202
 
 - zeroClipboard-github：https://github.com/zeroclipboard/ZeroClipboard
 
+## 参数
+
+- data-clipboard-text，需要显示的文本
+- data-clipboard-target，需要显示内容的dom元素ID
+
 
 
 ## 具体用法

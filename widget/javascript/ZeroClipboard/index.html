@@ -2,64 +2,39 @@
 <html>
 <head>
     <title>ZeroClipboard复制文件插件</title>
-    <script src="js/ZeroClipboard.min.js"></script>
-    <script src="../../js/1.8.3/jquery.min.js"></script>
+    <script src="js/ZeroClipboard.js"></script>
 </head>
 <body>
-    <div class="demo-area columns">
-        <div class="column one-half">
-            <h2><label for="fe_text">Text to Copy:</label></h2>
-            <textarea id="fe_text" cols="50" rows="3">Copy me!</textarea>
-            <p class="align-right">
-                <button id="d_clip_button" class="my_clip_button" title="Click me to copy to clipboard." data-clipboard-target="fe_text" data-clipboard-text="Default clipboard text from attribute">Copy To Clipboard...</button>
-            </p>
-        </div>
-        <div class="column one-half">
-            <h2><label for="testarea">Paste Here:</label></h2>
-            <textarea id="testarea" cols="50" rows="3"></textarea>
-            <p class="align-right"><button id="clear-test">Clear Test Area</button></p>
-        </div>
+    <div class="col-sm-5">
+        <button id="copy_button" data-clipboard-text="Copy Me!" title="Click to copy me." type="button" class="btn btn-primary">CopyToClipboard</button><span>Copy Me!</span>
     </div>
-    <div class="debug-console">
-            <h4>Debug Console:</h4>
-            <div id="d_debug"><p>Flash movie loaded and ready.</p><p>Copied text to clipboard: Copy me!</p></div>
-          </div>
+        
+    <script src="../../js/1.8.3/jquery.min.js"></script>
     <script>
-   $(document).ready(function() {
-       $('#d_clip_button').on('click',function(){//检测有无flash
-                if(navigator.plugins['Shockwave Flash'] == undefined){
-                    alert('您未安装flash，请先安装再尝试使用！');
-                }
-            });
-       ZeroClipboard.config( { swfPath: 'js/ZeroClipboard.swf' } );
-      var clip = new ZeroClipboard($("#d_clip_button"));
+        ZeroClipboard.config( { swfPath: 'js/ZeroClipboard.swf' } );
+  $(function() {
+    
+    var client = new ZeroClipboard($("#copy_button") );
 
-      clip.on("ready", function() {
-        debugstr("Flash movie loaded and ready.");
+    client.on( "ready", function( readyEvent ) {
+      // alert( "ZeroClipboard SWF is ready!" );
 
-        this.on("aftercopy", function(event) {
-          debugstr("Copied text to clipboard: " + event.data["text/plain"]);
-        });
-      });
+      client.on( "aftercopy", function( event ) {
+        // `this` === `client`
+        // `event.target` === the element that was clicked
+        //event.target.style.display = "none";
+        //alert("Copied text to clipboard: " + event.data["text/plain"] );
+          alert("Copied text to clipboard: " + $("#copy_button").attr("data-clipboard-text") );
+          $("#copy_button").after("<span>" + $("#copy_button").attr("data-clipboard-text") +  "</span>")
+      } );
+    } );
+      
+        client.on('error',function(){
+            alert('flash加载失败');
+        })
+    
+});
 
-    /*  clip.on("error", function(event) {
-        $(".demo-area").hide();
-        debugstr('error[name="' + event.name + '"]: ' + event.message);
-        ZeroClipboard.destroy();
-      });
-*/
-
-      // jquery stuff (optional)
-      function debugstr(text) {
-        $("#d_debug").append($("<p>").text(text));
-      }
-
-      $("#clear-test").on("click", function () {
-        $("#fe_text").val("Copy me!");
-        $("#testarea").val("");
-      });
-
-    });
 
     </script>
 </body>
