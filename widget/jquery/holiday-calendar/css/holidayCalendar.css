@@ -1,17 +1,17 @@
-* {
+.holidayCalendar * {
     margin: 0;
     padding: 0;
 }
-body {
+.holidayCalendar {
     font-family: "Microsoft Yahei";
     font-size: 12px;
     color: #888;
 }
-a, a:hover {
+.holidayCalendar a, .holidayCalendar a:hover {
     color: #888;
     text-decoration: none;
 }
-ul, li {
+.holidayCalendar ul, .holidayCalendar li {
     list-style: none;
 }
 

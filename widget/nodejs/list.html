@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全部列表页面（文件中读取）</title>
+    <link rel="stylesheet" href="https://t1.chei.com.cn/common/plugins/jquery-datatables/css/jquery.datatables.min.css">
+<style>
+h1{text-align: center;font-size: 30px;}
+ul, ol, li{list-style:normal;}
+a, a:link, a:visited{color:#2484c3;text-decoration: none;}
+a:visited{color:#143bb9}
+a:hover{text-decoration: underline;color:#63B7EF;}
+.content-bolck{margin:20px 50px;}
+.other-link{margin-bottom: 20px}
+.other-link a{margin-right: 20px}
+.table{width:100%;margin:20px 0;border-right:1px solid #ccc;border-bottom:1px solid #ccc;border-spacing: 0;}
+h3{text-align: center;font-size: 20px;border-top: 1px solid #333;margin-top:20px;padding-top:20px;}
+.table td,th{border-top:1px solid #ccc; border-left:1px solid #ccc;}
+.table th{font-size: 16px;}
+.table tr:hover{background: #fcfcf3;}
+/** datatables */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current{height: 32px;line-height: 30px;text-align: center;padding: 0 10px;font-size: 14px;color: #fff;border-radius: 5px;}
+.dataTables_wrapper .dataTables_filter input{height: 32px;line-height: 32px;padding: 2px 10px;}
+
+</style>
+</head>
+<body>
+    <h1>大屏展示全部列表页面</h1>
+    <div class='content-bolck'>
+        <div class="other-link">
+            <a href="/add.html" target="_blank">添加页面</a>
+        </div>
+        <table id='table-list' class="table">
+            <thead>
+                <th width="38">序号</th> 
+                <th width="38">页面ID</th> 
+                <th>页面名称</th>
+                <th width="70">页面链接</th>
+                <th width="70">业务类型</th>
+                <th width="70">语种</th>
+                <th width="70">数据类型</th>
+                <th width="70">运行状态</th>
+                <th width="70">对外展示许可</th>
+                <th width="70">页面更新时间</th>
+                <th width="70">页面更新人</th>
+                <th width="70">页面更新记录</th>
+                <th width="70">数据更新时间</th> 
+                <th width="70">操作</th>          
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+<script src="http://t1.chei.com.cn/common/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://t1.chei.com.cn/common/plugins/jquery-datatables/js/jquery.datatables.min.js"></script>
+<script>  
+$(function(){
+    showTableList();
+    deleteOnly();
+    updateOnly();
+})
+/**显示table格式的列表
+ * @return {null} 返回null
+ * @author huangh@chsi.com.cn 20170525
+ */
+function showTableList(){
+    var data = getTableData('file/file.json');//需要先获取data
+    console.log(data);
+    if(!!Function.prototype.bind){  
+        $('#table-list').DataTable({
+            data: data
+        });
+    }else{
+        alert('浏览器版本太低，更更换浏览器！');
+    }
+}
+/**获取表格数据   
+ * @param  {String} path json文件 
+ * @return {Array}  返回数组格式的数据
+ * @author huangh@chsi.com.cn 20170525
+ */
+function getTableData(path){
+    var newData = [];
+    $.ajaxSettings.async = false; //异步请求数据改成同步请求，很重要！
+    $.getJSON(path,function(data){
+        $.each(data,function(index,content){ 
+             var operateHtml = '<a href="/update?id='+content.id+'" class="update" id="update-'+content.id+'">修改</a>&ensp;&ensp;<a  class="delete" id="delete-'+content.id+'">删除</a>' ; 
+
+            newData.push([index+1,content.id,content.name,content.url,content.businesstype,content.language,content.datatype,content.runtype,content.opentype,content.updatetime,content.author,content.record,content.datatime,operateHtml]);
+        });
+    });
+    return newData; 
+}
+
+function updateOnly(){
+    $('.update').click(function(){
+        var $this = $(this);
+        var id = $this.attr('id').substring(7);
+        $.ajax({
+            type : 'POST',
+            url : '/update',
+            cache : false,
+            data:{
+                id : id
+            },
+            error : function() {
+                alert('加载页面时出错！')
+            },
+            success : function(content,textStatus, request) {
+                var $content = $(content);
+                $('body').html(content);
+                var name = request.getResponseHeader('name'),
+                    url = request.getResponseHeader('pageurl');
+                //$content.find('#name').attr('value',name);
+                //$content.find('#url').attr('value',url);
+                
+
+                $('#name').val(name);
+                $('#url').val(url);
+                
+            }
+        });
+    })
+}
+function deleteOnly(){
+    $('.delete').click(function(){
+        var $this = $(this);
+        var id = $this.attr('id').substring(7);
+        $.ajax({
+            type : 'POST',
+            url : '/deleteonly',
+            cache : false,
+            data:{
+                id : id
+            },
+            error : function() {
+                alert('加载页面时出错！')
+            },
+            success : function(content) {
+                $this.parents('tr').remove();
+                alert('删除成功！');
+            }
+        });
+        
+    })
+}
+</script>
+</body>
+</html>

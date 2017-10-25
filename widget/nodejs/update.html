@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>修改页面属性设置</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div>
+    <form id="form-add" method="get" action="updatepage" >
+        <h3>修改页面属性设置</h3>
+        <table>
+            <tr>
+                <th>页面名称：</th>
+                <td><input type="text" id="name" name="name" placeholder="页面名称" /></td>
+            </tr>
+            <tr>
+                <th>页面链接：</th>
+                <td><input type="text" id="url" name="url" placeholder="页面链接 " /></td>
+            </tr>
+            <tr>
+                <th>业务类型：</th>
+                <td>
+                    <select name="businesstype" id='businesstype'>
+                        <option value="多外服务">多外服务</option>
+                        <option value="高考">高考</option>
+                        <option value="研招">研招</option>
+                        <option value="学籍学历">学籍学历</option>
+                        <option value="征兵">征兵</option>
+                        <option value="宣传推广">宣传推广</option>
+                        <option value="满意度">满意度</option>
+                        <option value="就业">就业</option>
+                        <option value="其他承接的服务">其他承接的服务</option>
+                        <option value="基础设置">基础设置</option>
+                        <option value="硬件设备">硬件设备</option>
+                        <option value="系统运维">系统运维</option>
+                        <option value="数据统计">数据统计</option>
+                    </select>
+                </td> 
+            </tr>
+            <tr>
+                <th>语种：</th>
+                <td>
+                    <select name="language">
+                        <option value='中文'>中文</option>
+                        <option value='英文'>英文</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>数据类型：</th>
+                <td>
+                    <select name="datatype">
+                        <option value='静态'>静态</option>
+                        <option value='动态'>动态</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>运行状态：</th>
+                <td>
+                    <select name="runtype" id='runtype'>
+                        <option value='正常'>正常</option>
+                        <option value='故障'>故障</option>
+                        <option value='开发中'>开发中</option>
+                    </select> 
+                    <input type="text" name="reason" id='reason' value="" placeholder="故障原因" style='display: none'>
+                </td>
+            </tr>
+            <tr>
+                <th>对外展示许可：</th>
+                <td> 
+                    <select name="opentype">
+                        <option value='全公开'>全公开</option>
+                        <option value='禁止对国外来宾公开'>禁止对国外来宾公开</option>
+                        <option value='仅对国外来宾公开'>仅对国外来宾公开</option>
+                    </select> 
+                </td> 
+            </tr>
+            <tr>
+                <th>页面更新人：</th>
+                <td><input type="text" name="author" value="" placeholder="页面更新人">
+                </td> 
+            </tr>
+            <tr>
+                <th>页面更新记录：</th>
+                <td><input type="text" name="record" value="" placeholder="页面更新记录">
+                </td> 
+            </tr>
+            <tr>
+                <th>数据更新日期：</th>
+                <td> 
+                    <input type="text" name="datatime" value="" placeholder="数据更新日期">
+                </td> 
+            </tr>
+            <tr>
+                <th>&ensp;</th>
+                <td><input type="submit" value="保存" /></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<script src="http://t1.chei.com.cn/common/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    $(function(){
+
+    })
+</script>
+</body>
+</html>

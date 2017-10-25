@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>复制文件clipboard插件用法</title>
+
+</head>
+<body>
+   <input type="button" value="复制按钮" class="btn" data-clipboard-text="复制的内容">
+    <script src="js/clipboard.min.js"></script>
+    <script>
+        var clipboard = new Clipboard('.btn');
+        clipboard.on('begin', function(e) {
+            alert('ok');
+        });
+        clipboard.on('success', function(e) {
+            console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            console.info('Trigger:', e.trigger);
+
+            e.clearSelection();
+            alert('复制成功');
+        });
+    </script>
+</body>
+</html>

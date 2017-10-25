@@ -6,34 +6,45 @@
 </head>
 <body>
     <div class="col-sm-5">
-        <button id="copy_button" data-clipboard-text="Copy Me!" title="Click to copy me." type="button" class="btn btn-primary">CopyToClipboard</button><span>Copy Me!</span>
+         <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy to Clipboard</button>
     </div>
         
-    <script src="../../js/1.8.3/jquery.min.js"></script>
+ <!--   <script src="../../js/1.8.3/jquery.min.js"></script>-->
     <script>
-        ZeroClipboard.config( { swfPath: 'js/ZeroClipboard.swf' } );
-  $(function() {
+        //ZeroClipboard.config( { swfPath: 'js/ZeroClipboard.swf' } );
+ // $(function() {
     
-    var client = new ZeroClipboard($("#copy_button") );
+    var clip = new ZeroClipboard( document.getElementById("copy-button"), {
+          moviePath: "js/ZeroClipboard.swf"
+        } );
 
-    client.on( "ready", function( readyEvent ) {
-      // alert( "ZeroClipboard SWF is ready!" );
+        clip.on( 'load', function(client) {
+          // alert( "movie is loaded" );
+        } );
 
-      client.on( "aftercopy", function( event ) {
-        // `this` === `client`
-        // `event.target` === the element that was clicked
-        //event.target.style.display = "none";
-        //alert("Copied text to clipboard: " + event.data["text/plain"] );
-          alert("Copied text to clipboard: " + $("#copy_button").attr("data-clipboard-text") );
-          $("#copy_button").after("<span>" + $("#copy_button").attr("data-clipboard-text") +  "</span>")
-      } );
-    } );
-      
-        client.on('error',function(){
+        clip.on( 'complete', function(client, args) {
+         // this.style.display = 'none'; // "this" is the element that was clicked
+          alert("Copied text to clipboard: " + args.text );
+        } );
+
+        clip.on( 'mouseover', function(client) {
+          // alert("mouse over");
+        } );
+
+        clip.on( 'mouseout', function(client) {
+          // alert("mouse out");
+        } );
+
+        clip.on( 'mousedown', function(client) {
+
+          // alert("mouse down");
+        } );
+
+        clip.on( 'error', function(client) {
             alert('flash加载失败');
-        })
+        } );
     
-});
+//});
 
 
     </script>
