@@ -65,18 +65,20 @@ function onRequest(request,response){
         });
         request.addListener("end",function(){
             console.log('添加成功！');
-            response.writeHead(200,{"Content-Type":"text/plain; charset=utf-8"});
-            response.write('添加成功！');
+            response.writeHead(301,{ 'Location':'/' }); //重定向
             response.end();
         });
-    }else if(pathname=='/updatepage'){//修改
+    }else if(pathname=='/updatepage'){//保存修改内容
+        console.log('----进入修改保存页面----');
         var urlstr = '';
         request.addListener("data",function(postdata){
+            console.log(1);
             urlstr+=postdata;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
             var jsondata = qs.parse(urlstr);        //转换成json对象
             var id = jsondata.id;
+            console.log('id-----'+id);
             jsondata.updatetime = new Date().Format("yyyy-MM-dd hh:mm:ss");//更新时间
-            console.log("修改的数据-------"+jsondata);
+            console.log("修改的数据-------"+jsondata.name);
             var dataArr = fs.readFileSync(FileJson,'utf-8') ; //去读文件
             
             var fileDate=[];
@@ -85,17 +87,16 @@ function onRequest(request,response){
                 fileDate = eval("("+dataArr+")");  //string 类型转为 数组类型
                 size = fileDate.length ;
             }
-            console.log(fileDate[0].id);
-            console.log("size:"+size);
+            console.log("总共的数据条数:"+size);
 
-            /*//遍历已有数据，取出需要修改的数据，进行替换
+            //遍历已有数据，取出需要修改的数据，进行替换
             for (var i = 0; i < size; i++) {
                 if(fileDate[i].id==id){
                     fileDate[i] = jsondata;
                     break;
                 }
             }
-            console.log(fileDate.length);
+            console.log("修改后的新数据："+fileDate[i]);
             
             urlstr = JSON.stringify(fileDate);
 
@@ -105,20 +106,19 @@ function onRequest(request,response){
                  }else{
                      console.log("文件内容修改写入成功！");
                  }
-            }) */
+            }) 
         });
         request.addListener("end",function(){
-            response.writeHead(200,{"Content-Type":"text/plain; charset=utf-8"});
-            response.write('单个修改成功！');
+            response.writeHead(301,{ 'Location':'/' }); //重定向
             response.end();
         });
-    }else if(pathname=='/update' || pathname=='/update.html'){//访问列表页面
+    }else if(pathname=='/update'){//修改页面
         var urlstr = '';
         request.addListener("data",function(postdata){
             urlstr+=postdata;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
             var jsondata = qs.parse(urlstr);        //转换成json对象
-            var id = jsondata.id;
-            console.log("修改的数据-------"+id);
+            var id = jsondata.id;//前台传过来的参数，只有一个id
+            console.log("进入修改页面-------"+jsondata.id);
             var dataArr = fs.readFileSync(FileJson,'utf-8') ; //去读文件
             
             var fileDate=[];
@@ -127,8 +127,8 @@ function onRequest(request,response){
                 fileDate = eval("("+dataArr+")");  //string 类型转为 数组类型
                 size = fileDate.length ;
             }
-            console.log(fileDate[0].id);
-            console.log("size:"+size);
+           // console.log(fileDate[0].id);
+           // console.log("总共的数据条数："+size);
 
             //遍历已有数据，取出需要修改的数据，进行替换
             for (var i = 0; i < size; i++) {
@@ -137,31 +137,14 @@ function onRequest(request,response){
                     break;
                 }
             }
-            console.log(urlstr);
+           // console.log(urlstr);
         });
-        fs.readFile("update.html","utf-8",function(e,data){
-            console.log('upate___________'+urlstr.name);//返回数据
-            //response.write(urlstr);
-            //response.setHeader("name", urlstr.name);
-           // response.setHeader("pageurl", urlstr.url);
-            //console.log(urlstr.businesstype);
-           // response.writeHead(urlstr);
-
-           // var dataJson = JSON.stringify(urlstr);
-           // response.setHeader("dataJson", dataJson);
-            response.write(data);
-            console.log(1);
-            //response.end();
+        request.addListener("end",function(){
+            response.writeHead(200,{"Content-Type":"text/html; charset=utf-8"});
+            response.write(JSON.stringify(urlstr));
+            console.log('跳转到修改页面，数据传送成功！');
+            response.end();
         });
-        console.log(2);
-        request.addListener('end', function(data){ 
-            console.log(3);   
-            var post = qs.parse(urlstr);
-            console.log(4);
-            response.end(util.inspect(post));
-            console.log(5);
-        });
-
     }else if(pathname=='/deleteonly'){//单个删除
         var urlstr = '';
         request.addListener("data",function(postdata){
