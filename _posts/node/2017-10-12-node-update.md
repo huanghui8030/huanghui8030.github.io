@@ -3,7 +3,7 @@ layout: post
 title:  "nodejs版本升级"
 date:   2017-10-26 13:12:19 +0800
 categories: node
-sort: 1
+sort: 0601
 ---
 
 nodeJs大家经常会用到，但是更新太快，有些内容如果不更新会到时无法使用。例如antDesign如果使用的话，需要node版本大于0.6。更新方法，需要借助一个n这个模块，专门用来管理nodejs版本的。
