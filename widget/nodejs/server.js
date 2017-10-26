@@ -1,12 +1,16 @@
+/**
+ * nodejs 实现数据的增删查改
+ * huangh  20171025
+ */
 var httpserver = require("http");
 var qs = require("querystring");
 var url = require("url");
-var util = require('util');
 var fs = require("fs");
 
 var FileJson = "file/file.json";//写入内容的文件
 
 httpserver.createServer(onRequest).listen(3000);
+console.log('-------服务器已启动，请在浏览器中输入：http://127.0.0.1:3000/');
 
 function onRequest(request,response){
     var pathname = url.parse(request.url).pathname;
