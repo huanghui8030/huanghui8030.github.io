@@ -133,8 +133,10 @@ function addData(request,response){
                     + "',record='"+ (jsondata.record ||'')
                     
         if(jsondata.datatime!=''){
-            sql += "',datatime='"+ (jsondata.datatime ||'')+ "';"  ;
+            sql += "',datatime='"+ (jsondata.datatime ||'')  ;
         }
+        sql += "';" ;
+
         console.log("sql-----"+sql);
         //数据库更改数据
         Client.query(  
@@ -178,7 +180,7 @@ function updateShow(request,response){
                 var dataJson = [];
                 if(results.length==1){
                     dataJson = results[0];
-                    dataJson.datatime = results[0].datatime.Format("yyyy-MM-dd hh:mm:ss");
+                    // dataJson.datatime = results[0].datatime.Format("yyyy-MM-dd hh:mm:ss");
                     dataJson.updatetime = results[0].updatetime.Format("yyyy-MM-dd hh:mm:ss");
                 }else{
                     dataJson = '数据不存在！';
