@@ -9,9 +9,11 @@ var client = mysql.createConnection({
     port: 3306 
 });  
 
+var id = '1';
 client.connect();
 client.query(  
-    'SELECT * FROM page_list',  
+    'SELECT * FROM monitor_page_list where id =?', 
+    [id], 
     function selectCb(err, results, fields) {  
         if (err) {  
             throw err;  

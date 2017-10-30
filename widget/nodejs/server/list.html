@@ -78,6 +78,10 @@
     .table-con{
         padding: 0 20px;
     }
+    .redstart{
+        margin-right: 4px;
+        color: #f04134;
+    }
     </style>
 </head>
 
@@ -104,51 +108,51 @@
             <div class="modal fade" id="modal-update">
                 <form class="layui-form" method="post" action="updatepage">
                     <div class="layui-form-item">
-                        <label class="layui-form-label">页面名称</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>页面名称</label>
                         <div class="layui-input-block">
                             <input class="layui-input" id="name" type="text" name="name" lay-verify="required" autocomplete="off" placeholder="请输入页面名称">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">页面链接</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>页面链接</label>
                         <div class="layui-input-block">
                             <input class="layui-input" id="url" type="text" name="url" lay-verify="required" autocomplete="off" placeholder="请输入页面链接">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">业务类型</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>业务类型</label>
                         <div class="layui-input-block">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="对外服务">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="高考">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="研招">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="学籍学历">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="征兵">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="宣传推广">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="满意度">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="就业">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="其他承接的服务">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="基础设置">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="硬件设备">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="系统运维">
-                            <input type="checkbox" name="businesstype" lay-skin="primary" title="数据统计">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="对外服务" title="对外服务">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="高考" title="高考">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="研招" title="研招">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="学籍学历" title="学籍学历">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="征兵" title="征兵">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="宣传推广" title="宣传推广">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="满意度" title="满意度">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="就业" title="就业">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="其他承接的服务" title="其他承接的服务">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="基础设施" title="基础设施">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="硬件设备" title="硬件设备">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="系统运维" title="系统运维">
+                            <input type="checkbox" name="businesstype" lay-skin="primary" lay-verify="checkboxone" value="数据统计" title="数据统计">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">语种</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>语种</label>
                         <div class="layui-input-block">
                             <input type="radio" name="language" value="中文" title="中文">
                             <input type="radio" name="language" value="英文" title="英文">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">数据类型</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>数据类型</label>
                         <div class="layui-input-block">
                             <input type="radio" name="datatype" value="静态" title="静态">
                             <input type="radio" name="datatype" value="动态" title="动态">
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">运行状态</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>运行状态</label>
                         <div class="layui-input-inline">
                             <select id="runtype" name="runtype" lay-verify="required" lay-filter="runtype">
                                 <option value='正常'>正常</option>
@@ -168,7 +172,7 @@
                         </div>
                     </div>
                     <div class="layui-form-item">
-                        <label class="layui-form-label">对外展示许可</label>
+                        <label class="layui-form-label"><span class="redstart">*</span>对外展示许可</label>
                         <div class="layui-input-block">
                             <input type="radio" name="opentype" value="全公开" title="全公开">
                             <input type="radio" name="opentype" value="禁止对国外来宾公开" title="禁止对国外来宾公开">
@@ -237,6 +241,14 @@
                 $('input[name=reason]').addClass('layui-hide');
             }
         });
+        //自定义校验
+        form.verify({
+            checkboxone: function(value, item){
+                if($('input[name=businesstype]:checked').length < 1){
+                    return '业务类型至少选中一个';
+                }
+            }
+        });
     });
     /**显示table格式的列表
      * @return {null} 返回null
@@ -253,8 +265,8 @@
                 cols:  [[ //标题栏
                     {field: 'index', title: '序号', width: 70, sort:true},
                     {field: 'id', title: '页面ID', width: 140, sort:true},
-                    {field: 'name', title: '页面名称', width: 150, sort:true},
-                    {field: 'url', title: '页面链接', width: 120, sort:true},
+                    {field: 'name', title: '页面名称', width: 233, sort:true},
+                    {field: 'url', title: '页面链接', width: 155, sort:true},
                     {field: 'businesstype', title: '业务类型', width: 120, sort:true},
                     {field: 'language', title: '语种', width: 70, sort:true},
                     {field: 'datatype', title: '数据类型', width: 100, sort:true},
@@ -282,10 +294,10 @@
         var newData = [];
         $.ajaxSettings.async = false; //异步请求数据改成同步请求，很重要！
         $.getJSON(path, function(data) {
-            console.log(data)
+            //console.log(data)
             $.each(data, function(index, content) {
                 var operateHtml = '<a href="javascript:;" class="update" id="update-' + content.id + '">修改</a>&ensp;&ensp;<a href="javascript:;" class="delete" id="delete-' + content.id + '">删除</a>',
-                    pageName = '<a href="http://mis.chsi.com.cn/monitor/'+content.url+'">'+content.name+'</a>';
+                    pageName = '<a href="http://mis.chsi.com.cn/monitor/'+content.url+'" target="_blank">'+content.name+'</a>';
                 newData.push({
                     'index':index + 1,
                     'id':content.id,
@@ -313,7 +325,7 @@
     }
 
     function updateOnly() {
-        $('.update').click(function() {
+        $('.table-con').on('click','.update',function() {
             var id = $(this).attr('id').substring(7);
             $.ajax({
                 type: 'POST',
@@ -333,7 +345,6 @@
                         $modal.find('#id').val(dataJson.id)
                             .end().find('#name').val(dataJson.name)
                             .end().find('#url').val(dataJson.url)
-                            .end().find('#businesstype').val(dataJson.businesstype)
                             .end().find('input[name=language][value='+dataJson.language+']').attr("checked",true)
                             .end().find('input[name=datatype][value='+dataJson.datatype+']').attr("checked",true)
                             .end().find('#runtype').val(dataJson.runtype)
@@ -343,6 +354,14 @@
                             .end().find('#author').val(dataJson.author)
                             .end().find('#record').val(dataJson.record)
                             .end().find('#datatime').val(dataJson.datatime);
+                        $('input[name=businesstype]').prop("checked",false);
+                        if(typeof(dataJson.businesstype)!='string'){
+                            for(i in dataJson.businesstype){
+                                $('input[name=businesstype][value='+dataJson.businesstype[i]+']').prop("checked",true);
+                            }
+                        }else{
+                            $('input[name=businesstype][value='+dataJson.businesstype+']').prop("checked",true);
+                        }
                         form.render();
                         layer.open({
                             title: '修改页面属性设置',
@@ -363,7 +382,7 @@
     }
 
     function deleteOnly() {
-        $('.delete').click(function() {
+        $('.table-con').on('click','.delete',function() {
             var $this = $(this);
             var id = $this.attr('id').substring(7);
             layer.confirm('确认删除该页面吗？', {
@@ -382,8 +401,6 @@
                     success: function(content) {
                         $this.parents('tr').remove();
                         showTableList();
-                        deleteOnly();
-                        updateOnly();
                         layer.msg('删除成功！', {icon: 1});
                     }
                 });

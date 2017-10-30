@@ -9,6 +9,7 @@ var httpserver = require("http") ,
     mysql = require("mysql");
 
 
+
 var FileJson = "data.json";//写入内容的文件
 
 //创建连接  
@@ -20,8 +21,11 @@ var Client = mysql.createConnection({
     port: 3306 
 }); 
 
-httpserver.createServer(onRequest).listen(3000);
 
+
+Client.connect();
+
+httpserver.createServer(onRequest).listen(3000);
 
 
 console.log('-------服务器已启动，请在浏览器中输入：http://127.0.0.1:3000/');
@@ -77,9 +81,8 @@ function onRequest(request,response){
 /******************************************  数据相关方法 ************************************/
 /**获取所有数据列表方法**/
 function getListData(request,response){
-    Client.connect();
     Client.query(  
-        'SELECT * FROM page_list',  
+        'SELECT * FROM monitor_page_list',  
         function selectCb(err, results, fields) {  
             if (err) {  
                 throw err;  
@@ -95,8 +98,6 @@ function getListData(request,response){
             response.writeHead(200,{"Content-Type":"text/html; charset=utf-8"});
             response.write(dataJson);
             response.end();
-       
-            Client.end();  
         }  
     ); 
     
@@ -153,32 +154,32 @@ function addData(request,response){
 function updateShow(request,response){
     var urlstr = '';
     request.addListener("data",function(postdata){
-        urlstr+=postdata;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
+        urlstr += postdata ;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
         var jsondata = qs.parse(urlstr);        //转换成json对象
-        var id = jsondata.id;//前台传过来的参数，只有一个id
         console.log("进入修改页面-------"+jsondata.id);
-        var dataArr = fs.readFileSync(FileJson,'utf-8') ; //去读文件
-        
-        var fileDate=[];
-            size = 0;
-        if(dataArr !=''){
-            fileDate = eval("("+dataArr+")");  //string 类型转为 数组类型
-            size = fileDate.length ;
-        }
-        //遍历已有数据，取出需要修改的数据，进行替换
-        for (var i = 0; i < size; i++) {
-            if(fileDate[i].id==id){
-                urlstr = fileDate[i];
-                break;
-            }
-        }
-        // console.log(urlstr);
-    });
-    request.addListener("end",function(){
-        response.writeHead(200,{"Content-Type":"text/html; charset=utf-8"});
-        response.write(JSON.stringify(urlstr));
-        console.log('跳转到修改页面，数据传送成功！');
-        response.end();
+        //数据库查询数据
+        Client.query(  
+            'SELECT * FROM monitor_page_list where id =?',
+            [jsondata.id] ,
+            function selectCb(err, results, fields) {  
+                if (err) {
+                    console.log('数据库查询错误！');  
+                    throw err;  
+                }  
+                var dataJson = [];
+                if(results.length==1){
+                    dataJson = JSON.stringify(results[0]);
+                }else{
+                    dataJson = '数据不存在！';
+                }
+                urlstr  =  dataJson;
+                response.writeHead(200,{"Content-Type":"text/html; charset=utf-8"});
+                response.write(urlstr);
+                console.log('跳转到修改页面，数据传送成功！');
+                response.end();
+                
+            }  
+        ); 
     });
 }
 
@@ -192,16 +193,26 @@ function updateData(request,response){
     request.addListener("data",function(postdata){
         urlstr += postdata;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
         var jsondata = qs.parse(urlstr);        //转换成json对象
-        console.log("修改的数据-------"+jsondata.id);
-        
-        urlstr = setDataJson(jsondata);
-        fs.writeFile(FileJson,urlstr,{flag:'w',encoding:'utf-8',mode:'0666'},function(err){
-            if(err){
-                console.log("文件内容修改写入失败！")
-            }else{
-                console.log("文件内容修改写入成功！");
-            }
-        }) 
+        console.log("修改的数据-------"+jsondata.businesstype);
+    
+        //数据库更改数据
+        Client.query(  
+           /* 'UPDATE monitor_page_list SET name=?,url=?,businesstype=?,language=?,datatype=?,runtype=?,reason=?,dataauthor=?,opentype=?,author=?,record=?,datatime=? where id =?',
+            [jsondata.name,jsondata.url,jsondata.businesstype,jsondata.language,
+            jsondata.datatype,jsondata.runtype,jsondata.reason,jsondata.dataauthor,
+            jsondata.opentype,jsondata.author,jsondata.record,jsondata.datatime,jsondata.id] ,
+            */
+           'UPDATE monitor_page_list SET name=?,url=?,businesstype=? where id=?',
+           [jsondata.name,jsondata.url,jsondata.businesstype,jsondata.id],
+           function selectCb(err, results, fields) {  
+                if (err) {
+                    console.log('数据库查询错误！');  
+                    throw err;  
+                } 
+                console.log('------------数据已保存到数据库中--------------');
+            }  
+        ); 
+
     });
     request.addListener("end",function(){
         response.writeHead(301,{ 'Location':'/' }); //重定向
