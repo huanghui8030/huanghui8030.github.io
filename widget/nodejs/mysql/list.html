@@ -78,6 +78,10 @@
     .table-con{
         padding: 0 20px;
     }
+    .redstart{
+        margin-right: 4px;
+        color: #f04134;
+    }
     </style>
 </head>
 
@@ -99,6 +103,7 @@
                 </div>
                 <table id='table-list' class="layui-table"></table>
             </div>
+            
             <!-- Modal -->
             <div class="modal fade" id="modal-update">
                 <form class="layui-form" method="post" action="updatepage">
@@ -236,6 +241,14 @@
                 $('input[name=reason]').addClass('layui-hide');
             }
         });
+        //自定义校验
+        form.verify({
+            checkboxone: function(value, item){
+                if($('input[name=businesstype]:checked').length < 1){
+                    return '业务类型至少选中一个';
+                }
+            }
+        });
     });
     /**显示table格式的列表
      * @return {null} 返回null
@@ -252,8 +265,8 @@
                 cols:  [[ //标题栏
                     {field: 'index', title: '序号', width: 70, sort:true},
                     {field: 'id', title: '页面ID', width: 140, sort:true},
-                    {field: 'name', title: '页面名称', width: 150, sort:true},
-                    {field: 'url', title: '页面链接', width: 120, sort:true},
+                    {field: 'name', title: '页面名称', width: 233, sort:true},
+                    {field: 'url', title: '页面链接', width: 155, sort:true},
                     {field: 'businesstype', title: '业务类型', width: 120, sort:true},
                     {field: 'language', title: '语种', width: 70, sort:true},
                     {field: 'datatype', title: '数据类型', width: 100, sort:true},
@@ -277,7 +290,7 @@
      * @return {Array}  返回数组格式的数据
      * @author huangh@chsi.com.cn 20170525
      */
-    function getTableData() {
+    function getTableData(path) {
         var newData = [];
         $.ajaxSettings.async = false; //异步请求数据改成同步请求，很重要！
         $.ajax({
@@ -288,12 +301,11 @@
                 alert('加载页面时出错！')
             },
             success: function(data, textStatus, request) {
-                console.log(data)
+                //console.log(data)
                 var data = eval('('+data+')');
-                console.log(data)
                 $.each(data, function(index, content) {
                     var operateHtml = '<a href="javascript:;" class="update" id="update-' + content.id + '">修改</a>&ensp;&ensp;<a href="javascript:;" class="delete" id="delete-' + content.id + '">删除</a>',
-                        pageName = '<a href="http://mis.chsi.com.cn/monitor/'+content.url+'">'+content.name+'</a>';
+                        pageName = '<a href="http://mis.chsi.com.cn/monitor/'+content.url+'" target="_blank">'+content.name+'</a>';
                     newData.push({
                         'index':index + 1,
                         'id':content.id,
@@ -312,10 +324,7 @@
                     });
                 });
             }
-        });
-        /*$.getJSON(path, function(data) {
-            
-        });*/
+        })
         return newData;
     }
     
@@ -325,7 +334,7 @@
     }
 
     function updateOnly() {
-        $('.update').click(function() {
+        $('.table-con').on('click','.update',function() {
             var id = $(this).attr('id').substring(7);
             $.ajax({
                 type: 'POST',
@@ -345,7 +354,6 @@
                         $modal.find('#id').val(dataJson.id)
                             .end().find('#name').val(dataJson.name)
                             .end().find('#url').val(dataJson.url)
-                            .end().find('#businesstype').val(dataJson.businesstype)
                             .end().find('input[name=language][value='+dataJson.language+']').attr("checked",true)
                             .end().find('input[name=datatype][value='+dataJson.datatype+']').attr("checked",true)
                             .end().find('#runtype').val(dataJson.runtype)
@@ -355,6 +363,17 @@
                             .end().find('#author').val(dataJson.author)
                             .end().find('#record').val(dataJson.record)
                             .end().find('#datatime').val(dataJson.datatime);
+                        //设置故障原因
+                        if(dataJson.runtype=='故障'){
+                            $modal.find('#reason').removeClass('layui-hide');
+                        }
+                        //设置业务类型
+                        if(dataJson.businesstype!=''){
+                            var businessArr = dataJson.businesstype.split(',');
+                            for(i in businessArr){
+                                 $modal.find('input[name=businesstype][value='+businessArr[i]+']').prop("checked",true);
+                            }
+                        }
                         form.render();
                         layer.open({
                             title: '修改页面属性设置',
@@ -365,6 +384,7 @@
                                 closeAll();
                             }
                         });
+
                         form.on('submit(demo1)', function(data){
                             closeAll();
                         });
@@ -375,7 +395,7 @@
     }
 
     function deleteOnly() {
-        $('.delete').click(function() {
+        $('.table-con').on('click','.delete',function() {
             var $this = $(this);
             var id = $this.attr('id').substring(7);
             layer.confirm('确认删除该页面吗？', {
@@ -394,8 +414,6 @@
                     success: function(content) {
                         $this.parents('tr').remove();
                         showTableList();
-                        deleteOnly();
-                        updateOnly();
                         layer.msg('删除成功！', {icon: 1});
                     }
                 });

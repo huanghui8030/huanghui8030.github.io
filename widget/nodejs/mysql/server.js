@@ -147,7 +147,7 @@ function addData(request,response){
     });
 }
 
-/**修改方法，显示数据项。将数据返回到页面
+/**修改方法，显示数据项。将数据返回到页面。数据返回页面显示不对。
  * @param {[type]} request  
  * @param {[type]} response 
  */
@@ -173,6 +173,7 @@ function updateShow(request,response){
                     dataJson = '数据不存在！';
                 }
                 urlstr  =  dataJson;
+                console.log('businesstype:'+dataJson.businesstype);
                 response.writeHead(200,{"Content-Type":"text/html; charset=utf-8"});
                 response.write(urlstr);
                 console.log('跳转到修改页面，数据传送成功！');
@@ -194,7 +195,24 @@ function updateData(request,response){
         urlstr += postdata;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
         var jsondata = qs.parse(urlstr);        //转换成json对象
         console.log("修改的数据-------"+jsondata.businesstype);
-    
+        if(jsondata.id==''){
+            console.log('改数据不存在！');
+            return false;
+        }
+        var sql =  "UPDATE monitor_page_list SET name='" + (jsondata.name||'') 
+                    + "',url='"+ (jsondata.url||'')
+                    + "',businesstype='"+ (jsondata.businesstype ||'')
+                    + "',language='"+ (jsondata.language ||'')
+                    + "',datatype='"+ (jsondata.datatype ||'')
+                    + "',runtype='"+ (jsondata.runtype ||'')
+                    + "',reason='"+ (jsondata.reason ||'')
+                    + "',dataauthor='"+ (jsondata.dataauthor ||'')
+                    + "',opentype='"+ (jsondata.opentype ||'')
+                    + "',author='"+ (jsondata.author ||'')
+                    + "',record='"+ (jsondata.record ||'')
+                    + "',datatime='"+ (jsondata.datatime ||'')
+                    + "' where id='"+jsondata.id+"'"  ;
+        console.log("sql-----"+sql);
         //数据库更改数据
         Client.query(  
            /* 'UPDATE monitor_page_list SET name=?,url=?,businesstype=?,language=?,datatype=?,runtype=?,reason=?,dataauthor=?,opentype=?,author=?,record=?,datatime=? where id =?',
@@ -202,8 +220,7 @@ function updateData(request,response){
             jsondata.datatype,jsondata.runtype,jsondata.reason,jsondata.dataauthor,
             jsondata.opentype,jsondata.author,jsondata.record,jsondata.datatime,jsondata.id] ,
             */
-           'UPDATE monitor_page_list SET name=?,url=?,businesstype=? where id=?',
-           [jsondata.name,jsondata.url,jsondata.businesstype,jsondata.id],
+           sql,
            function selectCb(err, results, fields) {  
                 if (err) {
                     console.log('数据库查询错误！');  
@@ -261,11 +278,10 @@ function deleteOnly(request,response){
                  console.log("文件内容删除写入成功！");
              }
         }) 
+
+
     });
     request.addListener("end",function(){
-       /* response.writeHead(200,{"Content-Type":"text/plain; charset=utf-8"});
-        response.write('单个删除成功！');
-        response.end();*/
         response.writeHead(301,{ 'Location':'/' }); //重定向
         response.end();
     });
