@@ -90,7 +90,12 @@ function getListData(request,response){
             //处理空数据
             var dataJson = [];
             if(results){
-                dataJson = JSON.stringify(results);
+                
+                dataJson = results;
+                for (i in results) {
+                    dataJson[i].updatetime = results[i].updatetime.Format("yyyy-MM-dd hh:mm:ss");
+                }
+                dataJson = JSON.stringify(dataJson);
             }else{
                 dataJson = false;
             }
@@ -114,31 +119,35 @@ function addData(request,response){
         
         jsondata.updatetime = new Date().Format("yyyy-MM-dd hh:mm:ss");//更新时间
 
-        var dataArr = fs.readFileSync(FileJson,'utf-8') ; 
-        
-        var fileDate=[];
-            size = 0;
-        if(dataArr !=''){
-            fileDate = eval("("+dataArr+")");  //string 类型转为 数组类型
-            size = fileDate.length ;
+        var sql =  "insert into monitor_page_list SET id='" + new Date().getTime() 
+                    + "',name='" + (jsondata.name||'') 
+                    + "',url='"+ (jsondata.url||'')
+                    + "',businesstype='"+ (jsondata.businesstype ||'')
+                    + "',language='"+ (jsondata.language ||'')
+                    + "',datatype='"+ (jsondata.datatype ||'')
+                    + "',runtype='"+ (jsondata.runtype ||'')
+                    + "',reason='"+ (jsondata.reason ||'')
+                    + "',dataauthor='"+ (jsondata.dataauthor ||'')
+                    + "',opentype='"+ (jsondata.opentype ||'')
+                    + "',author='"+ (jsondata.author ||'')
+                    + "',record='"+ (jsondata.record ||'')
+                    
+        if(jsondata.datatime!=''){
+            sql += "',datatime='"+ (jsondata.datatime ||'')+ "';"  ;
         }
+        console.log("sql-----"+sql);
+        //数据库更改数据
+        Client.query(  
+           sql,
+           function selectCb(err, results, fields) {  
+                if (err) {
+                    console.log('数据库更新错误！');  
+                    throw err;  
+                } 
+                console.log('------------数据已保存到数据库中--------------');
+            }  
+        ); 
 
-        console.log(fileDate);
-        console.log("size:"+size);
-
-        jsondata.id = new Date().getTime(); //序号，唯一标识
-
-        
-        fileDate[size] = jsondata;
-        urlstr = JSON.stringify(fileDate);
-
-        fs.writeFile(FileJson,urlstr,{flag:'w',encoding:'utf-8',mode:'0666'},function(err){
-             if(err){
-                 console.log("文件内容添加写入失败！")
-             }else{
-                 console.log("文件内容添加写入成功！");
-             }
-        }) 
     });
     request.addListener("end",function(){
         console.log('添加成功！');
@@ -168,12 +177,13 @@ function updateShow(request,response){
                 }  
                 var dataJson = [];
                 if(results.length==1){
-                    dataJson = JSON.stringify(results[0]);
+                    dataJson = results[0];
+                    dataJson.datatime = results[0].datatime.Format("yyyy-MM-dd hh:mm:ss");
+                    dataJson.updatetime = results[0].updatetime.Format("yyyy-MM-dd hh:mm:ss");
                 }else{
                     dataJson = '数据不存在！';
                 }
-                urlstr  =  dataJson;
-                console.log('businesstype:'+dataJson.businesstype);
+                urlstr  =  JSON.stringify(dataJson);
                 response.writeHead(200,{"Content-Type":"text/html; charset=utf-8"});
                 response.write(urlstr);
                 console.log('跳转到修改页面，数据传送成功！');
@@ -215,15 +225,10 @@ function updateData(request,response){
         console.log("sql-----"+sql);
         //数据库更改数据
         Client.query(  
-           /* 'UPDATE monitor_page_list SET name=?,url=?,businesstype=?,language=?,datatype=?,runtype=?,reason=?,dataauthor=?,opentype=?,author=?,record=?,datatime=? where id =?',
-            [jsondata.name,jsondata.url,jsondata.businesstype,jsondata.language,
-            jsondata.datatype,jsondata.runtype,jsondata.reason,jsondata.dataauthor,
-            jsondata.opentype,jsondata.author,jsondata.record,jsondata.datatime,jsondata.id] ,
-            */
            sql,
            function selectCb(err, results, fields) {  
                 if (err) {
-                    console.log('数据库查询错误！');  
+                    console.log('数据库更新错误！');  
                     throw err;  
                 } 
                 console.log('------------数据已保存到数据库中--------------');
@@ -247,38 +252,18 @@ function deleteOnly(request,response){
         urlstr+=postdata;    //接收到的表单数据字符串，这里可以用两种方法将UTF-8编码转换为中文
         var jsondata = qs.parse(urlstr);        //转换成json对象
         var id = jsondata.id;
-        jsondata.updatetime = new Date().Format("yyyy-MM-dd hh:mm:ss");//更新时间
 
-        var dataArr = fs.readFileSync(FileJson,'utf-8') ; 
-        
-        var fileDate=[];
-            size = 0;
-        if(dataArr !=''){
-            fileDate = eval("("+dataArr+")");  //string 类型转为 数组类型
-            size = fileDate.length ;
-        }
-        console.log(fileDate[0].id);
-        console.log("size:"+size);
-
-        //遍历已有数据，取出需要修改的数据，进行单个删除。记住需要break，否则会报错
-        for (var i = 0; i < size; i++) {
-            if(fileDate[i].id==id){
-                fileDate.splice(i,1);
-                break;
-            }
-        }
-        console.log(fileDate.length);
-        
-        urlstr = JSON.stringify(fileDate);
-
-        fs.writeFile(FileJson,urlstr,{flag:'w',encoding:'utf-8',mode:'0666'},function(err){
-             if(err){
-                 console.log("文件内容删除写入失败！")
-             }else{
-                 console.log("文件内容删除写入成功！");
-             }
-        }) 
-
+        Client.query(  
+           'DELETE FROM monitor_page_list WHERE id =?; ',
+           [jsondata.id],
+           function selectCb(err, results, fields) {  
+                if (err) {
+                    console.log('数据库删除错误！');  
+                    throw err;  
+                } 
+                console.log('------------数据已从数据库中删除！--------------');
+            }  
+        ); 
 
     });
     request.addListener("end",function(){
