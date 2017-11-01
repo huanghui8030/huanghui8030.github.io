@@ -3,7 +3,7 @@ layout: post
 title:  "复制文件插件clipboard用法-不依赖flash"
 date:   2017-10-18 11:12:19 +0800
 categories: js
-sort: 0203
+sort: 0202
 ---
 
 
@@ -54,8 +54,6 @@ sort: 0203
   ```
 
   ​
-
-
 
 
 - 具体[demo](/widget/javascript/clipboard/index.html)
