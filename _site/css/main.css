@@ -330,13 +330,13 @@ pre {
         font-size: 18px; } }
 
 .post-bottom {
-  border: 1px solid #3f48c8;
-  background: #7265e6;
+  border: 1px solid #bdc0e3;
+  background: #e5e3f6;
   padding: 10px;
   font-style: italic;
   font-size: 14px;
   margin: 20px 0;
-  color: #fff; }
+  color: #666; }
 
 .side-area {
   overflow: hidden;
