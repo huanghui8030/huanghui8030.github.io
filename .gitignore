@@ -2,3 +2,6 @@
 _site/
 
 widget/nodejs/svninfo/node_modules/*
+
+widget/nodejs/mysql/node_modules/*
+widget/nodejs/*/node_modules/*
