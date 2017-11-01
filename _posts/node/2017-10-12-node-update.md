@@ -29,11 +29,11 @@ nodeJs大家经常会用到，但是更新太快，有些内容如果不更新�
 - 执行：`n stable`，会报错，表示没有权限：
 
   ```javascript
-      install : node-v8.8.1
-         mkdir : /usr/local/n/versions/node/8.8.1
+  install : node-v8.8.1
+  mkdir : /usr/local/n/versions/node/8.8.1
   mkdir: /usr/local/n/versions/node/8.8.1: Permission denied
 
-    Error: sudo required
+  Error: sudo required
   ```
 
   如图所示（无权访问）：
