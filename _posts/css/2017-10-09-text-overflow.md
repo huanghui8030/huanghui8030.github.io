@@ -42,7 +42,7 @@ sort: 0304
 
 ### 2、多行文本框省略显示，目前仅支持webkit浏览器
 
-```
+```css
 .div-block2{
     width: 400px; 
     display: -webkit-box;

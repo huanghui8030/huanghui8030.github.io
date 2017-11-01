@@ -5,14 +5,20 @@
     border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
-    background: #f4f4f4;
+    background: $red-color;
     // Positioning context for the mobile navigation icon
-    position: relative;
+    position: fixed;
+    top:0;
+    z-index: 99999;
+    width:100%;
 }
 
-.site-title {
+.site-title{
+
     font-size: 26px;
     font-weight: 300;
+}
+.site-header a {
     line-height: 56px;
     letter-spacing: -1px;
     margin-bottom: 0;
@@ -20,7 +26,12 @@
 
     &,
     &:visited {
-        color: $grey-color-dark;
+        color: #efefef;
+    }
+    &:hover{
+        color: #fff;
+        background-color: transparent;
+        text-decoration:none;
     }
 }
 
@@ -31,7 +42,6 @@
     .menu-icon {
         display: none;
     }
-
     .page-link {
         display: inline-block;
         padding: 0 20px;
@@ -40,9 +50,9 @@
            /*  margin-right: 20px; */
         }
     }
-    .selected{
-        background: $purple-color;
-        color: $white-color;
+    a.selected{
+        background: #f1c7d2;
+        color: #333;
     }
 
     @include media-query($on-palm) {
@@ -102,13 +112,13 @@
  */
 .site-footer {
     border-top: 1px solid $grey-color-light;
-    padding: $spacing-unit 0;
-    background: #f4f4f4;
+    padding-top: 20px;
+    background: #f8f7f7;
 }
 
 .footer-heading {
     font-size: 18px;
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 10px;
 }
 
 .contact-list,
@@ -126,7 +136,6 @@
 
 .footer-col {
     float: left;
-    margin-bottom: $spacing-unit / 2;
     padding-left: $spacing-unit / 2;
 }
 
@@ -173,6 +182,7 @@
  */
 .page-content {
     padding: $spacing-unit 0;
+    margin-top: 60px;
 }
 
 .page-heading {
@@ -193,7 +203,7 @@
 
 }
 .post-category{
-    background:$purple-color;
+    background:$red-color;
     color:$white-color;
     display:inline-block;
     padding: 0px 4px;
@@ -255,8 +265,8 @@
     }
 }
 .post-bottom{
-    border: 1px solid #bdc0e3;
-    background: #e5e3f6;
+    border: 1px solid #ebd4d4;
+    background: #f3eded ;
     padding: 10px;
     font-style: italic;
     font-size: 14px;
@@ -289,13 +299,13 @@
         border-bottom: none;
         position: relative;
         text-shadow: 0 1px 2px #eee;
-        color: #948aec;
+        color: #176edf;
         transition: background 0.5s ease-out;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
         &:hover {
-            background:#e4e2fa;
+            background:#f8cece;
             text-decoration: none;
             .iconfont {
                 color: #aaa;
@@ -319,8 +329,8 @@
         }
     }
     .selected,.selected:hover{
-        background: #7265e6;
-        color: #fff;
+        background: $red-color;
+        color: $white-color;
         text-shadow:none;
     }
     .side-title{
