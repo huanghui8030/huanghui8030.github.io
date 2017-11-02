@@ -4,7 +4,7 @@
 .site-header {
     border-top: 5px solid $grey-color-dark;
     border-bottom: 1px solid $grey-color-light;
-    min-height: 56px;
+    min-height: 46px;
     background: $red-color;
     // Positioning context for the mobile navigation icon
     position: fixed;
@@ -19,7 +19,7 @@
     font-weight: 300;
 }
 .site-header a {
-    line-height: 56px;
+    line-height: 46px;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
@@ -37,7 +37,7 @@
 
 .site-nav {
     float: right;
-    line-height: 56px;
+    line-height: 46px;
 
     .menu-icon {
         display: none;
