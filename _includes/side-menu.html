@@ -1,7 +1,7 @@
 <div class="side-area">
     
     {% if  site.categories.css %}
-        <h3 class="side-title">CSS</h3>
+        <h3 class="side-title">CSS（{{site.categories.css.size}}）</h3>
         <ul>
         {% assign _posts_array =  site.categories.css | sort: "order" %}
         {% for node in _posts_array %}
@@ -16,7 +16,7 @@
 
 
     {% if  site.categories.html %}
-        <h3 class="side-title">Html</h3>
+        <h3 class="side-title">Html（{{site.categories.html.size}}）</h3>
         <ul>
         {% assign _posts_array =  site.categories.html | sort: "order" %}
         {% for node in _posts_array %}
@@ -30,7 +30,7 @@
     {% endif %}
     
     {% if  site.categories.jquery %}
-        <h3 class="side-title">JQuery</h3>
+        <h3 class="side-title">JQuery（{{site.categories.jquery.size}}）</h3>
         <ul>
         {% assign _posts_array =  site.categories.jquery | sort: "order" %}
         {% for node in _posts_array %}
@@ -44,7 +44,7 @@
     {% endif %}
 
     {% if  site.categories.js %}
-        <h3 class="side-title">Js</h3>
+        <h3 class="side-title">Js（{{site.categories.js.size}}）</h3>
         <ul>
         {% assign _posts_array =  site.categories.js | sort: "order" %}
         {% for node in _posts_array %}
@@ -59,7 +59,7 @@
 
 
     {% if  site.categories.mocha %}
-        <h3 class="side-title">Mocha</h3>
+        <h3 class="side-title">Mocha（{{site.categories.mocha.size}}）</h3>
         <ul>
         {% assign _posts_array =  site.categories.mocha | sort: "order" %}
         {% for node in _posts_array %}
@@ -72,10 +72,24 @@
         </ul>
     {% endif %}
 
-    {% if  site.categories.webpack %}
-        <h3 class="side-title">Webpack</h3>
+    {% if  site.categories.node %}
+        <h3 class="side-title">Node（{{site.categories.node.size}}）</h3>
         <ul>
-        {% assign _posts_array =  site.categories.webpack | sort: "order" %}
+        {% assign _posts_array =  site.categories.node | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}' title=' {{node.title}}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if  site.categories.mysql %}
+        <h3 class="side-title">Mysql（{{site.categories.mysql.size}}）</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.mysql | sort: "order" %}
         {% for node in _posts_array %}
               <li>
                 <a href='{{node.url | prepend: site.baseurl }}' title=' {{node.title}}'>
@@ -86,10 +100,10 @@
         </ul>
     {% endif %}
     
-    {% if  site.categories.study %}
-        <h3 class="side-title">其他</h3>
+    {% if  site.categories.other %}
+        <h3 class="side-title">其他（{{site.categories.other.size}}）</h3>
         <ul>
-        {% assign _posts_array =  site.categories.study | sort: "order" %}
+        {% assign _posts_array =  site.categories.other | sort: "order" %}
         {% for node in _posts_array %}
               <li>
                 <a href='{{node.url | prepend: site.baseurl }}' title=' {{node.title}}'>

@@ -1,4 +1,4 @@
-//获取ip地址
+//获取本机ip地址
 function getIPAdress() {
     var interfaces = require('os').networkInterfaces();　　
     for (var devName in interfaces) {　　　　
@@ -15,7 +15,7 @@ function getIPAdress() {
 var ip = getIPAdress();
 console.log("\n--------IP地址：" + ip+ "------\n");
 
-
+//客服端ip地址
 function getClientIp(req) {  
     var ipAddress;  
     var forwardedIpsStr = req.header('x-forwarded-for');   
@@ -28,4 +28,3 @@ function getClientIp(req) {
     }  
     return ipAddress;  
 } 
-var clientIp = getClientIp(req);

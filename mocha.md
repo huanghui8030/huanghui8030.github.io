@@ -4,7 +4,7 @@ title: Mocha
 permalink: /mocha/
 ---
 <div class="home">
-
+    Mocha（{{site.categories.mocha.size}}）
     <ul class="post-list">
         {% for post in site.categories.mocha %}
             <li>

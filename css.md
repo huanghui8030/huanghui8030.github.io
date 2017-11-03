@@ -5,7 +5,7 @@ permalink: /css/
 ---
 
 <div class="home">
-
+    css（{{site.categories.css.size}}）
     <ul class="post-list">
         {% for post in site.categories.css %}
             <li>
