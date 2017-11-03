@@ -2,7 +2,7 @@
 
 ##Jekyll用法
 
-利用Jelyll来构建gitHub Page，创建[自己的博客](http://huanghui8030.github.io/)
+利用[Jelyll](http://jekyll.com.cn/docs/variables/)来构建gitHub Page，创建[自己的博客](http://huanghui8030.github.io/)
 
 ## 本地用法
 

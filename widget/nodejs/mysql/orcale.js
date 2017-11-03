@@ -1,25 +1,22 @@
 //不可用
 var oracledb = require('oracledb');
 
-oracledb.getConnection(
-  {
+oracledb.getConnection({
     user          : "chsiaccount",
     password      : "chsitest",
-    connectString : "jdbc:oracle:thin:@172.16.1.97:1521:ora9"
-  },
-  function(err, connection)
-  {
+    connectString : "172.16.1.97:1521:ora9/"
+},function(err, connection){
     if (err) {
-      console.error(err.message);
-      return;
+        console.error(err.message);
+        return;
     }
     connection.execute(
-      "SELECT id FROM MONITOR_PAGE_LIST ",
-      function(err, result) {
-        if (err) {
-          console.error(err.message);
-          return;
-        }
-        console.log(result);
-      });
-  });
+        "SELECT * FROM MONITOR_PAGE_LIST ",
+        function(err, result) {
+            if (err) {
+                console.error(err.message);
+                return;
+            }
+            console.log(result);
+        });
+});
