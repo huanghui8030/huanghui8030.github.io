@@ -8,14 +8,20 @@ var User = {
 console.log(User.username+'---'+User.pwd);
 /* GET index page. */
 router.get('/', function(req, res,next) {
-  res.render('index', { title: 'Express' });    // 到达此路径则渲染index文件，并传出title值供 index.html使用
+
+    if(!req.session.user){                  //到达/home路径首先判断是否已经登录
+        req.session.error = "请先登录"
+        //res.redirect("/login");             //未登录则重定向到 /login 路径
+        res.render("login",{title:'User Login'});
+    }else{
+        res.render("home",{username:req.session.user.username});  
+    }
+    
+ 
 });
 
 /* GET login page. */
-router.route("/login").get(function(req,res){    // 到达此路径则渲染login文件，并传出title值供 login.html使用
-    res.render("login",{title:'User Login'});
-
-}).post(function(req,res){                     // 从此路径检测到post方式则进行post数据的处理操作
+router.route("/login").post(function(req,res){                     // 从此路径检测到post方式则进行post数据的处理操作
     var uname = req.body.uname;             //获取post上来的 data数据中 uname的值
     var pwd = req.body.upwd;
     console.log("后台输入的名字："+uname+'---'+pwd);
@@ -34,15 +40,15 @@ router.route("/login").get(function(req,res){    // 到达此路径则渲染logi
 });
 
 
-/* GET home page. */
+/* GET home page. 
 router.get("/home",function(req,res){ 
-    console.log(req.session.user);
+    //console.log(req.session.user);
     if(!req.session.user){                  //到达/home路径首先判断是否已经登录
         req.session.error = "请先登录"
         res.redirect("/login");             //未登录则重定向到 /login 路径
     }
-    res.render("home",{title:'Home'});         //已登录则渲染home页面
-});
+    res.render("home",{username:req.session.user.username});         //已登录则渲染home页面
+});*/
 
 /* GET logout page. */
 router.get("/logout",function(req,res){    // 到达 /logout 路径则登出， session中user,error对象置空，并重定向到根路径

@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var session = require('express-session');
 
-var routes = require('./routes/index');
+var login = require('./routes/login');
 var users = require('./routes/users');
 
 var app = express();
@@ -15,7 +15,7 @@ var app = express();
 app.use(session({ 
     secret: 'secret',
     cookie:{ 
-        maxAge: 1000*30
+        maxAge: 1000*60*60
     }
 }));
 
@@ -55,11 +55,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 /*app.use('/', index);
 app.use('/users', users);
 app.use('/login', login)*/
-app.use('/', routes);  // 即为为路径 / 设置路由
+app.use('/', login);  // 即为为路径 / 设置路由
 app.use('/users', users); // 即为为路径 /users 设置路由
-app.use('/login',routes); // 即为为路径 /login 设置路由
-app.use('/home',routes); // 即为为路径 /home 设置路由
-app.use("/logout",routes); // 即为为路径 /logout 设置路由
+app.use('/login',login); // 即为为路径 /login 设置路由
+app.use('/home',login); // 即为为路径 /home 设置路由
+app.use("/logout",login); // 即为为路径 /logout 设置路由
 
 
 // 404
