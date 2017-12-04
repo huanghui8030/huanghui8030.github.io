@@ -5,3 +5,6 @@ widget/nodejs/svninfo/node_modules/*
 
 widget/nodejs/mysql/node_modules/*
 widget/nodejs/*/node_modules/*
+
+widget/webpack0724/node_modules/*
+widget/*/node_modules/*

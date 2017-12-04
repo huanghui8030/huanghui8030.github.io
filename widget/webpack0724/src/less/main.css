@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+  text-size-adjust: 100%;
+  background: white;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
+.test{
+    background:white url(../images/a.png) no-repeat;
+    width:100px;
+    height: 100px;
+}
+.photo2{
+         width:300px;height: 300px;
+        background: white url(../images/part2.png) no-repeat;
+}
