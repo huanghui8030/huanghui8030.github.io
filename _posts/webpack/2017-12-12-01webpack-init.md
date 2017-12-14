@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "一、webpack学习之简单打包--不用配置文件"
+title:  "一、webpack命令行之简单打包--不用配置文件，只打包js"
 date:   2017-12-12 08:42:19 +0800
 categories: webpack
 sort: 0803

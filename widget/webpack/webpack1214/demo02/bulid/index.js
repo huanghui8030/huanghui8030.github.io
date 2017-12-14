@@ -73,16 +73,15 @@
  * 加入loader：cnpm install webpack style-loader css-loader --save-dev
  *  * css-loader，webpack能够处理.css文件
  *  * style-loader，将.css文件通过style加入到打包的js中，而且在页面显示到style标签里面。
- *  * url-loader，image需要加载进来
  */
 __webpack_require__(1);
 
-__webpack_require__(6);
+__webpack_require__(6); 
 
 b();
 
 function b(){
-    console.log('test.js');
+    console.log('test.js1111');
 }
 
 /***/ }),
@@ -125,7 +124,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "body{\n    background:lightcyan;\n}\n\n.div1{\n    background:green;\n   /* background-image: url(image.png) ;*/\n    width:32px;\n    height:32px;\n}", ""]);
+exports.push([module.i, "body{\n    background:lightcyan;\n}\n\n.div1{\n    background:green;\n    width:32px;\n    height:32px;\n}", ""]);
 
 // exports
 
@@ -683,11 +682,9 @@ module.exports = function (css) {
 /* 6 */
 /***/ (function(module, exports) {
 
-
 a();
-
 function a(){
-    alert('a.js');
+    console.log('a.js');
 }
 
 /***/ })

@@ -1,6 +1,4 @@
-
 a();
-
 function a(){
-    alert('a.js');
+    console.log('a.js');
 }
