@@ -20,3 +20,5 @@ github_username: "https://github.com/huanghui8030"
 permalink: none
 # Build settings
 markdown: kramdown
+
+exclude: ['widget']
