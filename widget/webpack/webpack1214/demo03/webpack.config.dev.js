@@ -5,7 +5,8 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
 module.exports = {
     entry: {
         a : "./static/js/a.js",
@@ -16,20 +17,14 @@ module.exports = {
         filename: "[name]-[hash:8].js"
     },
     devtool: 'eval-source-map',//开发是使用
-    devServer: {
+   /* devServer: {
         contentBase: "./dist/build/",//本地服务器所加载的页面所在的目录，默认8080端口
         historyApiFallback: true,//不跳转
         inline: true//实时刷新
-    },
+    },*/
     module: {
         rules: [
-            {test: /\.less$/, //loader: 'style-loader!css-loader!less-loader'},
-                user:[
-                    {loader:"style-loader"},
-                    {loader:"css-loader"},
-                    {loader:"less-loader"}
-                ]
-            },
+           
             {test: /\.css$/,
                 use: [
                     {loader: "style-loader"}, 
@@ -43,6 +38,9 @@ module.exports = {
             }
         ]
     },
+   /* postcss: function () {
+        return [precss, autoprefixer];
+    },*/
     plugins: [
         new webpack.BannerPlugin('版权所有，翻版必究'),//压缩文件，注释
         new HtmlWebpackPlugin({
@@ -53,6 +51,19 @@ module.exports = {
             root: __dirname,
             verbose: true,
             dry: false
-        })
+        }),
+         new webpack.LoaderOptionsPlugin({
+            options: {
+              postcss: function () {
+                return [precss, autoprefixer];
+              },
+              devServer: {
+                contentBase: "./", //本地服务器所加载的页面所在的目录
+                colors: true, //终端中输出结果为彩色
+                historyApiFallback: true, //不跳转
+                inline: true //实时刷新
+              }
+            }
+          })
     ],
 };

@@ -1,7 +1,8 @@
 var Common = require('./common.js');
 
-require('../css/less/a.less');
+//require('../css/less/a.less');
 
+//import less from '../css/less/a.less';
 a();
 
 function a(){
