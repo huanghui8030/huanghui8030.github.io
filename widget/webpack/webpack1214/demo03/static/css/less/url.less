@@ -1,18 +1,25 @@
-#root{
+@width: 65px;
+@colorbg :#DDF2E8;
+
+#img-small{
      display: flex;
-     width:200px;
-     height:200px;
-     background:#DDF2E8 url(../../images/online.png) no-repeat;; 
+     width:@width;
+     height:@width;
+     background:@colorbg url(../../images/online.png) no-repeat;
      border-radius: 5px;
 }
-.left{
-    // background: url(../../images/image.png);
-}
-.right{
-    background:red;
+
+#img-svg{
+     display: flex;
+     width:@width;
+     height:@width;
+     background:@colorbg url(../../images/global.svg) no-repeat;
+     border-radius: 5px;
 }
 
-#root{
-    width:100px;
-    height:100px;
+
+#img-big{
+    width:1100px;
+    height:200px;
+    background:@colorbg url(../../images/banner1.jpg) no-repeat;
 }

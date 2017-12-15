@@ -1,5 +1,5 @@
 /**
- * (3)webpack基本配置，less/css/html等都url图片相关资源。
+ * (3)webpack基本配置，less/css/html等都url图片相关资源。file-loader
  * huanghui 20171215
  */
 const webpack = require('webpack');
@@ -30,8 +30,7 @@ module.exports = {
                     },
                     {loader: "postcss-loader"}  //厂商前缀
                 ]
-            },
-            {
+            },{
                 test: /\.less$/, 
                 use: [
                     {loader: "style-loader" }, 
@@ -44,18 +43,27 @@ module.exports = {
                     },
                     {loader: "postcss-loader"} //厂商前缀
                 ] 
-            },
-            {
-                test: /\.(png|jpg|gif)$/,
+            },{
+                test: /\.(png|gif|svg)$/,
                 use: [
-                  {
-                    loader: 'url-loader',
-                    options: {
-                      limit: 8192
+                    {
+                        loader: 'url-loader',//转成base64格式图片
+                        options: {
+                            limit: 4000   //图片大小限制(b)
+                        }
                     }
-                  }
                 ]
-              }
+            },{
+                test: /\.(jpg)$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options:{
+                            name: 'images/[name].[ext]?[hash:8]'
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [
