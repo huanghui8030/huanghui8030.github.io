@@ -23,26 +23,22 @@ module.exports = {
     },
     module: {
         rules: [
-           /* {
-                test: /(\.jsx|\.js)$/,
-                use: {
-                    loader: "babel-loader"
-                },
-                exclude: /node_modules/
-            },*/
-            {
-                test: /\.css$/,
+            {test: /\.less$/, //loader: 'style-loader!css-loader!less-loader'},
+                user:[
+                    {loader:"style-loader"},
+                    {loader:"css-loader"},
+                    {loader:"less-loader"}
+                ]
+            },
+            {test: /\.css$/,
                 use: [
-                    {
-                        loader: "style-loader"
-                    }, {
-                        loader: "css-loader",
+                    {loader: "style-loader"}, 
+                    {loader: "css-loader",
                         options: {
                             modules: true
                         }
-                    }, {
-                        loader: "postcss-loader"
-                    }
+                    }, 
+                    {loader: "postcss-loader"}
                 ]
             }
         ]
