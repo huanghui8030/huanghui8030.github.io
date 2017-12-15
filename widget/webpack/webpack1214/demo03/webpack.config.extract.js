@@ -15,7 +15,7 @@ module.exports = {
     },
     output: {
         path: __dirname + "/dist/build-extract/",
-        filename: "js/[name]-[hash:8].js"
+        filename: "[name].js?[hash:8]"
     },
     devtool: 'eval-source-map',//开发是使用
     module: {
@@ -58,14 +58,14 @@ module.exports = {
     plugins: [
         new webpack.BannerPlugin('将css单独分离出来！'),//压缩文件，注释
         new HtmlWebpackPlugin({
-            template: __dirname + "/static/html/url.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
+            template: __dirname + "/static/html/extract.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.HotModuleReplacementPlugin(),//热加载插件
-        new CleanWebpackPlugin('./dist/build-extract/*.*', {//清除dist目录
+        new CleanWebpackPlugin('./dist/build-extract/*', {//清除dist目录
             root: __dirname,
             verbose: true,
             dry: false
         }),
-        new ExtractTextPlugin("css/custom.css"),//合并css
+        new ExtractTextPlugin("custom.css"),//合并css
     ],
 };

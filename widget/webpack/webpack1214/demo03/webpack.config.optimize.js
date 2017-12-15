@@ -1,5 +1,5 @@
 /**
- * (4)webpack基本配置，用到插件，将所有样式单独提取出来
+ * (5)webpack基本配置，将合并后的css进行优化，去重等操作。   ---- 未生效 
  * huanghui 20171215
  */
 const webpack = require('webpack');
@@ -8,13 +8,15 @@ const CleanWebpackPlugin = require("clean-webpack-plugin");
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");//将css单独提取出来，放一个文件里面。
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
 
 module.exports = {
     entry: {
-        a : "./static/js/extract.js"
+        a : "./static/js/optimize.js"
     },
     output: {
-        path: __dirname + "/dist/build-extract/",
+        path: __dirname + "/dist/build-optimize/",
         filename: "js/[name]-[hash:8].js"
     },
     devtool: 'eval-source-map',//开发是使用
@@ -56,16 +58,22 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('将css单独分离出来！'),//压缩文件，注释
+        new webpack.BannerPlugin('将css单独分离出来，去重复！'),//压缩文件，注释
         new HtmlWebpackPlugin({
-            template: __dirname + "/static/html/url.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
+            template: __dirname + "/static/html/optimize.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
         }),
         new webpack.HotModuleReplacementPlugin(),//热加载插件
-        new CleanWebpackPlugin('./dist/build-extract/*.*', {//清除dist目录
+        new CleanWebpackPlugin('./dist/build-optimize/*', {//清除dist目录
             root: __dirname,
             verbose: true,
             dry: false
         }),
-        new ExtractTextPlugin("css/custom.css"),//合并css
+        new ExtractTextPlugin("custom.css"),//合并css
+        new OptimizeCssAssetsPlugin({   //去掉重复的css
+          assetNameRegExp: /\.optimize\.css$/g,
+          cssProcessor: require('cssnano'),
+          cssProcessorOptions: { discardComments: {removeAll: true } },
+          canPrint: true
+        })
     ],
 };

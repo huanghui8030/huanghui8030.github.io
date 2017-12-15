@@ -3,11 +3,13 @@
     "autoprefixer": "^7.2.2",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",
+    "cssnano": "^3.10.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
     "postcss-loader": "^2.0.9",
     "precss": "^2.0.0",
     "style-loader": "^0.19.0",
@@ -22,14 +24,13 @@
     "webpack": "^3.10.0"
   },
   "scripts": {
-    "start": "webpack --config webpack.config.dev.js -p",
-    "detail": "webpack --config webpack.config.dev.js --progress --display-modules --display-reasons --colors ",
-    "build": "webpack --config webpack.config.js -p",
-    "css": "webpack --config webpack.config.css.js --watch",
-    "less": "webpack --config webpack.config.less.js --watch",
-    "url": "webpack --config webpack.config.url.js --watch",
-    "extract": "webpack --config webpack.config.extract.js --watch",
-    "optimize": "webpack --config webpack.config.optimize.js --watch"
+    "start": "webpack --config webpack.config.js -p",
+    "detail": "webpack --config webpack.config.js --progress --display-modules --display-reasons --colors --watch",
+    "c": "webpack --config webpack.config.css.js --p",
+    "l": "webpack --config webpack.config.less.js --p",
+    "u": "webpack --config webpack.config.url.js --p",
+    "e": "webpack --config webpack.config.extract.js -p",
+    "o": "webpack --config webpack.config.optimize.js --p"
   },
   "keywords": [
     "webpack",

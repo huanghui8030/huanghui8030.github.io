@@ -1,7 +1,7 @@
 var Common = require('./common.js');
 
-require('../css/less/url.less');
-require('../css/styles/url.css');
+require('../styles/less/url.less');
+require('../styles/css/url.css');
 
 a();
 

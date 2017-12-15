@@ -1,7 +1,7 @@
 
 var Common = require('./common.js');
 
-var Styele = require('../css/styles/atest.css');
+var Styele = require('../styles/css/atest.css');
 
 test();
 
