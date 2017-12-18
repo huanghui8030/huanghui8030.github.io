@@ -25,7 +25,7 @@ module.exports = {
                 {loader: "less-loader", 
                     options: {
                         strictMath: true,
-                        noIeCompat: true
+                        noIeCompat: false
                     }
                 },
                 {loader: "postcss-loader"}]  //厂商前缀

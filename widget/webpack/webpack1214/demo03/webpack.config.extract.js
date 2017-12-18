@@ -23,15 +23,22 @@ module.exports = {
             {   
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["css-loader",'postcss-loader']
+                    use: ["css-loader",'postcss-loader'],
+                    fallback: "style-loader"
                 })
             },{
                 test: /\.less$/, 
                 use: ExtractTextPlugin.extract({
-                    fallback: "style-loader",
-                    use: ["css-loader","less-loader",'postcss-loader']
+                    use: [
+                        {
+                            loader: "css-loader",
+                            options: {
+                                sourceMap: true
+                            }
+                        },"less-loader",'postcss-loader'],
+                    fallback: "style-loader"
                 })
+                
             },{
                 test: /\.(png|gif|svg)$/,
                 use: [
