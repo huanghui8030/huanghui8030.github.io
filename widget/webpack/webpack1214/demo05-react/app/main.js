@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 class Hello extends Component{
     render(){
         return (
-            <h1>Hello world</h1>
+            <div>
+                <h1>  Hello world</h1>
+                <p>这是一个react的demo</p>
+            </div>
         );
     }
 }
