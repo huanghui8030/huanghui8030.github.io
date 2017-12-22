@@ -21,8 +21,7 @@ module.exports = {
                     {loader: "style-loader"}, 
                     {loader: "css-loader",
                         options: {
-                            modules: true,
-                            noIeCompat: true
+                            modules: true  //css是否局部
                         }
                     },
                     {loader: "postcss-loader"}  //厂商前缀

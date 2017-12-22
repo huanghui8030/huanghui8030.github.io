@@ -18,22 +18,27 @@ module.exports = {
     devtool: 'eval-source-map',//开发是使用
     module: {
         rules: [
-            {test: /\.less$/, 
+             {test: /\.css$/,
+                use: [
+                    {loader: "style-loader"}, 
+                    {loader: "css-loader",
+                        options: {
+                            modules: true  //css是否局部
+                        }
+                    },
+                    {loader: "postcss-loader"}  //厂商前缀
+                ]
+            },{test: /\.less$/, 
                use: [
                 {loader: "style-loader" }, 
                 {loader: "css-loader" }, 
-                {loader: "less-loader", 
-                    options: {
-                        strictMath: true,
-                        noIeCompat: false
-                    }
-                },
+                {loader: "less-loader"},
                 {loader: "postcss-loader"}]  //厂商前缀
             }
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('压缩单成a.js'),//压缩文件，注释
+        new webpack.BannerPlugin('压缩a.js'),//压缩文件，注释
         new HtmlWebpackPlugin({
             template: __dirname + "/static/html/less.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
         }),

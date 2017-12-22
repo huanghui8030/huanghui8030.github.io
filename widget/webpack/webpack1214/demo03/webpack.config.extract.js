@@ -17,7 +17,7 @@ module.exports = {
         path: __dirname + "/dist/build-extract/",
         filename: "[name].js?[hash:8]"
     },
-    devtool: 'eval-source-map',//开发是使用
+    devtool: 'eval-source-map',//开发时使用
     module: {
         rules: [
             {   
