@@ -79,9 +79,11 @@
 <script>
     $(function(){
         var href = window.location.href;
+        $('.side-area ul,.side-area h3').hide();
         $('.side-area a').each(function(index,ele){
             if(href.indexOf($(ele).attr('href'))>-1){
-                $(ele).addClass('selected');
+                $(ele).addClass('selected').parents('ul').show().prev().show();
+                $('.side-area').show();
                 return false;
             }
         })
@@ -100,7 +102,7 @@
       <div class="wrapper">
         <div class="post">
   <div class="ui">
-    <div class="side-left"><div class="side-area">
+    <div class="side-left"><div class="side-area" style="display: none;">
     
         <h3 class="side-title">CSS（5）</h3>
         <ul>

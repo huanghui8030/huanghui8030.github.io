@@ -411,7 +411,7 @@ pre {
     color: #fff;
     text-shadow: none; }
   .side-area .side-title {
-    margin: 10px 0 0; }
+    margin: 10px; }
 
 .side-loading {
   height: 100px;
