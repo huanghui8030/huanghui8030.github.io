@@ -1,11 +1,11 @@
 ---
 layout: page
-title: webpack
+title: Webpack
 permalink: /webpack/
 ---
 
 <div class="home">
-    webpack ({{site.categories.webpack.size}}）
+    {{page.title}} ({{site.categories.webpack.size}}）
     <ul class="post-list">
         {% for post in site.categories.webpack %}
             <li>
