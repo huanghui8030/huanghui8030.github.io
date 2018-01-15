@@ -2,9 +2,11 @@
 layout: page
 title: Mysql
 permalink: /mysql/
+sort: 08
 ---
 
 <div class="home">
+    <h1 class="post-title">{{page.title}}（{{site.categories.mysql.size}}）</h1>
     <ul class="post-list">
         {% for post in site.categories.mysql %}
             <li>

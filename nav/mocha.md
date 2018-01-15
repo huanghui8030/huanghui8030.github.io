@@ -2,8 +2,10 @@
 layout: page
 title: Mocha
 permalink: /mocha/
+sort: 06
 ---
 <div class="home">
+    <h1 class="post-title">{{page.title}}（{{site.categories.mocha.size}}）</h1>
     <ul class="post-list">
         {% for post in site.categories.mocha %}
             <li>

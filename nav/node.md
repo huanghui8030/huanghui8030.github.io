@@ -2,9 +2,11 @@
 layout: page
 title: Node
 permalink: /node/
+sort: 07
 ---
 
 <div class="home">
+    <h1 class="post-title">{{page.title}}（{{site.categories.node.size}}）</h1>
     <ul class="post-list">
         {% for post in site.categories.node %}
             <li>

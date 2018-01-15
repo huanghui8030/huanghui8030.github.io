@@ -2,8 +2,10 @@
 layout: page
 title: JQuery
 permalink: /jquery/
+sort: 01
 ---
 <div class="home">
+    <h1 class="post-title">{{page.title}}（{{site.categories.jquery.size}}）</h1>
     <ul class="post-list">
         {% for post in site.categories.jquery %}
             <li>
