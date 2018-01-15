@@ -5,8 +5,7 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require("clean-webpack-plugin");
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
+
 module.exports = {
     entry: "./static/js/css.js",
     output: {

@@ -80,5 +80,8 @@ module.exports = {
         historyApiFallback: true,  
         inline: true,  
         hot: true  
-    } 
+    },
+    resolve:{
+        
+    }
 };

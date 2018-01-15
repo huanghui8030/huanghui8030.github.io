@@ -1,4 +1,4 @@
 a();
 function a(){
-    console.log('a.js1');
+    console.log('a.js1222');
 }

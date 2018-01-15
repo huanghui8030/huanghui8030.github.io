@@ -4,10 +4,14 @@
  */
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+
 var CleanWebpackPlugin = require("clean-webpack-plugin");
+
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");//将css单独提取出来，放一个文件里面。
+
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
@@ -58,12 +62,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.BannerPlugin('我是注释'),//压缩文件，注释
-        new HtmlWebpackPlugin({
-            template: __dirname + "/static/html/optimize.tmpl.html"//new 一个这个插件的实例，并传入相关的参数
-        }),
-        new webpack.HotModuleReplacementPlugin(),//热加载插件
-        new webpack.NoEmitOnErrorsPlugin(),   //出错时只打印错误，但不重新加载页面
         new CleanWebpackPlugin('./build/demo12/*', {//清除dist目录
             root: __dirname,
             verbose: true,

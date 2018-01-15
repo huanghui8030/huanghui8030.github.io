@@ -5,6 +5,7 @@ var webpack = require('webpack'),
     HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    //第二种Object类型
     entry: {
         ajs : "./src/js/a.js",
         bjs : "./src/js/b.js",
@@ -12,7 +13,6 @@ module.exports = {
     output: {
         path: __dirname + "/build/demo05/",
         filename: "[name].js"
-        //publicPath:"https://t1.chei.com.cn/"  //静态路径替换
     },
     plugins:[
         new HtmlWebpackPlugin({

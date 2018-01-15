@@ -1,13 +1,9 @@
 /**
- * huanghui 输入出都为两个文件
+ * huanghui 第一种String类型
  */
 var webpack = require('webpack');
-
 module.exports = {
-    entry: {
-        a : "./src/js/a.js",
-        b : "./src/js/b.js",
-    },
+    entry:"./src/js/a.js",
     output: {
         path: __dirname + "/build/demo03/",
         filename: "[name]-[hash:8].js"

@@ -31,7 +31,7 @@ module.exports = {
             },{test: /\.less$/, 
                use: [
                 {loader: "style-loader" }, 
-                {loader: "css-loader" }, 
+                {loader: "css-loader"}, 
                 {loader: "less-loader"},
                 {loader: "postcss-loader"}]  //厂商前缀
             }
