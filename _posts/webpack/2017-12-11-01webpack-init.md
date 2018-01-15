@@ -69,5 +69,5 @@ webpack简单打包，不写任何配置时的打包方法，如下：
 
 
 
-> 详见【[demo](/widget/webapck1214/demo01/index.html)】
+> 详见【[demo01](https://github.com/huanghui8030/webpack/tree/master/demo01)】
 
