@@ -8,7 +8,13 @@ sort: 0803
 
 webpack简单打包，不写任何配置时的打包方法，如下：
 
+## 安装
 
+- 全局安装：` cnpm install webpack -g`
+- 项目依赖：`npm install webpack --save-dev`
+- 项目初始化：`cnpm init`
+
+## 简单demo
 
 - 新建一个包“webpack1214/demo01”，执行：cnpm init：
 
@@ -67,7 +73,11 @@ webpack简单打包，不写任何配置时的打包方法，如下：
 
 另：以上图片不是最新，更换了目录，放到demo01里面去了。
 
+## 说明
 
+- 直接在页面引入打包后的js即可。连样式都不用引入，脚本执行时会动态生成<style>并标签打到head里。
+- 根据需要也可以将css单独放到一个css文件中。
+- ​
 
 > 详见【[demo01](https://github.com/huanghui8030/webpack/tree/master/demo01)】
 
