@@ -5,7 +5,6 @@ permalink: /js/
 ---
 
 <div class="home">
-    JavaScript（{{site.categories.js.size}}）
     <ul class="post-list">
         {% for post in site.categories.js %}
             <li>

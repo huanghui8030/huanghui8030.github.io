@@ -195,6 +195,13 @@
 
     > li {
         margin-bottom: $spacing-unit;
+        border: 1px solid #ccc;
+        background: #fafafa;
+        padding: 20px;
+        &:hover {
+            background: #FFF2F0;
+        }
+
     }
     .post-meta{
         width:120px;
@@ -228,7 +235,7 @@
 } 
 
 .post-title {
-    font-size: 42px;
+    font-size: 40px;
     letter-spacing: -1px;
     line-height: 1;
 
@@ -239,7 +246,11 @@
 
 .post-content {
     margin-bottom: $spacing-unit;
-
+    .post-excerpt{
+        h2,h3,p{
+            font-size:16px;
+        }
+    }
     h2 {
         font-size: 32px;
 
@@ -273,10 +284,18 @@
     margin: 20px 0;
     color: #666;
 }
+.side-left {
+    float: left;
+    width: 300px;
+}
+
+.ui-post {
+    margin-left: 300px;
+}
 //左侧菜单选中
 .side-area {
     overflow: hidden;
-    width: 220px;
+    width: 260px;
     background: #fff;
     ul {
         padding: 0;

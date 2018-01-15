@@ -1,25 +1,15 @@
 ---
 layout: default
 ---
-<style>
-  .side-left {
-    float: left;
-    width: 260px;
-  }
-
-  .ui-post {
-    margin-left: 260px;
-  }
-</style>
 
 <div class="post">
   <div class="ui">
-   <div class="side-left">{% include side-menu.html %}</div>
+    <div class="side-left">{% include side-menu.html %} </div>
     <article class="ui-post" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
         <span class="post-meta">
-            {{ page.date | date: "%Y年%m月%d日" }}&ensp;&ensp;&ensp;&ensp;{{site.author}}&ensp;&ensp;&ensp;&ensp;<span class="post-category"> {{page.categories}} </span>
+            {{ page.date | date: "%Y年%m月%d日" }}&ensp;&ensp;&ensp;&ensp;{{site.author}}&ensp;&ensp;&ensp;&ensp;<span class="post-category">{{page.categories}}</span>
         </span>
       </header>
       <div class="post-content" itemprop="articleBody">

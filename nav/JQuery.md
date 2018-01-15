@@ -4,7 +4,6 @@ title: JQuery
 permalink: /jquery/
 ---
 <div class="home">
-    JQuery（{{site.categories.jquery.size}}）
     <ul class="post-list">
         {% for post in site.categories.jquery %}
             <li>

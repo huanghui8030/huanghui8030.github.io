@@ -287,7 +287,12 @@ pre {
   margin-left: 0;
   list-style: none; }
   .post-list > li {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    background: #fafafa;
+    padding: 20px; }
+    .post-list > li:hover {
+      background: #FFF2F0; }
   .post-list .post-meta {
     width: 120px;
     display: inline-block; }
@@ -313,7 +318,7 @@ pre {
   margin-bottom: 30px; }
 
 .post-title {
-  font-size: 42px;
+  font-size: 40px;
   letter-spacing: -1px;
   line-height: 1; }
   @media screen and (max-width: 800px) {
@@ -322,6 +327,8 @@ pre {
 
 .post-content {
   margin-bottom: 30px; }
+  .post-content .post-excerpt h2, .post-content .post-excerpt h3, .post-content .post-excerpt p {
+    font-size: 16px; }
   .post-content h2 {
     font-size: 32px; }
     @media screen and (max-width: 800px) {
@@ -347,9 +354,16 @@ pre {
   margin: 20px 0;
   color: #666; }
 
+.side-left {
+  float: left;
+  width: 300px; }
+
+.ui-post {
+  margin-left: 300px; }
+
 .side-area {
   overflow: hidden;
-  width: 220px;
+  width: 260px;
   background: #fff; }
   .side-area ul {
     padding: 0;

@@ -5,7 +5,6 @@ permalink: /node/
 ---
 
 <div class="home">
-    Node（{{site.categories.node.size}}）
     <ul class="post-list">
         {% for post in site.categories.node %}
             <li>

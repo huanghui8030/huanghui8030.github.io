@@ -1,5 +1,4 @@
 <div class="side-area">
-    
     {% if  site.categories.css %}
         <h3 class="side-title">CSS（{{site.categories.css.size}}）</h3>
         <ul>
@@ -57,6 +56,19 @@
         </ul>
     {% endif %}
 
+    {% if  site.categories.webpack %}
+        <h3 class="side-title">Webpack（{{site.categories.webpack.size}}）</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.webpack | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}' title=' {{node.title}}'>
+                  {{node.title}}
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 
     {% if  site.categories.mocha %}
         <h3 class="side-title">Mocha（{{site.categories.mocha.size}}）</h3>

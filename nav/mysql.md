@@ -5,7 +5,6 @@ permalink: /mysql/
 ---
 
 <div class="home">
-    Mysql（{{site.categories.mysql.size}}）
     <ul class="post-list">
         {% for post in site.categories.mysql %}
             <li>

@@ -5,7 +5,6 @@ permalink: /webpack/
 ---
 
 <div class="home">
-    {{page.title}} ({{site.categories.webpack.size}}）
     <ul class="post-list">
         {% for post in site.categories.webpack %}
             <li>
@@ -14,7 +13,7 @@ permalink: /webpack/
             <h2>
               <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
             </h2>
-            <p>{{ post.excerpt }}</p>
+            <div class="post-excerpt">{{ post.excerpt }}</div>
             </li>
         {% endfor %}
     </ul>

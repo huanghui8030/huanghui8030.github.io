@@ -5,7 +5,6 @@ permalink: /other/
 ---
 
 <div class="home">
-    Other（{{site.categories.other.size}}）
     <ul class="post-list">
         {% for post in site.categories.other %}
             <li>
