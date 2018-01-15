@@ -54,7 +54,7 @@ ul, ol {
 
 li > ul,
 li > ol {
-  margin-bottom: 0; }
+  margin-bottom: 15px; }
 
 /**
  * Headings
@@ -330,7 +330,8 @@ pre {
   .post-content .post-excerpt h2, .post-content .post-excerpt h3, .post-content .post-excerpt p {
     font-size: 16px; }
   .post-content h2 {
-    font-size: 32px; }
+    font-size: 32px;
+    border-bottom: 1px solid #ccc; }
     @media screen and (max-width: 800px) {
       .post-content h2 {
         font-size: 28px; } }

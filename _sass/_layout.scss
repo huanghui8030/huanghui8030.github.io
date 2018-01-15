@@ -253,7 +253,7 @@
     }
     h2 {
         font-size: 32px;
-
+        border-bottom: 1px solid #ccc;
         @include media-query($on-laptop) {
             font-size: 28px;
         }
