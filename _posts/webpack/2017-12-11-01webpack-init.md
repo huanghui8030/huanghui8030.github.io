@@ -77,7 +77,8 @@ webpack简单打包，不写任何配置时的打包方法，如下：
 
 - 直接在页面引入打包后的js即可。连样式都不用引入，脚本执行时会动态生成<style>并标签打到head里。
 - 根据需要也可以将css单独放到一个css文件中。
-- ​
+
+  ​
 
 > 详见【[demo01](https://github.com/huanghui8030/webpack/tree/master/demo01)】
 

@@ -6,7 +6,9 @@ categories: webpack
 sort: 0806
 ---
 
-webpack 的配置中主要的两个配置 key 是，entry 和 output。
+webpack 的配置中主要的两个配置 key 是，entry 和 output。单一入口、多文件入口、多个打包目标文件、output参数说明等。
+
+实例：
 
 ```javascript
 {
