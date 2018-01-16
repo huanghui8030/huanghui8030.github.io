@@ -355,18 +355,25 @@ pre {
   margin: 20px 0;
   color: #666; }
 
-.side-left {
-  float: left;
-  width: 300px; }
+.ui {
+  position: relative; }
+
+.side-menu {
+  width: 400px;
+  position: absolute;
+  right: 0px;
+  top: 0; }
 
 .ui-post {
-  margin-left: 300px; }
+  margin-right: 400px; }
 
 .side-area {
   overflow: hidden;
-  width: 260px;
-  background: #fff; }
+  width: 360px;
+  background: #fff;
+  margin-left: 40px; }
   .side-area ul {
+    font-size: 14px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -388,7 +395,8 @@ pre {
     transition: background 0.5s ease-out;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; }
+    white-space: nowrap;
+    padding-right: 150px; }
     .side-area a:hover {
       background: #f8cece;
       text-decoration: none; }
@@ -401,6 +409,13 @@ pre {
       top: 11px;
       font-size: 12px;
       line-height: 14px; }
+  .side-area .side-title {
+    margin: 10px; }
+  .side-area .side-time {
+    color: #666;
+    position: absolute;
+    right: 10px;
+    top: 8px; }
   .side-area .side-highlight a {
     background: #FBFFD7;
     text-shadow: none;
@@ -411,8 +426,8 @@ pre {
     background: #CA3131;
     color: #fff;
     text-shadow: none; }
-  .side-area .side-title {
-    margin: 10px; }
+    .side-area .selected .side-time, .side-area .selected:hover .side-time {
+      color: #fff; }
 
 .side-loading {
   height: 100px;

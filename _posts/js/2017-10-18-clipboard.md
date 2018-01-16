@@ -27,7 +27,7 @@ sort: 0202
 
 - 具体demo，点击复制按钮，复制内容data-content里面的内容：
 
-  ```javascript
+  ```html
   <!DOCTYPE html>
   <html>
   <head>
@@ -56,4 +56,4 @@ sort: 0202
   ​
 
 
-- 具体[demo](/widget/javascript/clipboard/index.html)
+>  [效果](/widget/javascript/clipboard/index.html) | [源码](https://github.com/huanghui8030/huanghui8030.github.io/tree/master/widget/javascript/clipboard)
