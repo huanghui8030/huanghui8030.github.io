@@ -50,4 +50,4 @@ fs.writeFile('file/file.txt',data,{flag:'a',encoding:'utf-8',mode:'0666'},functi
 
 
 
-> 详见 [demo](/widget/nodejs/readfile/readTxt.js)
+> 详见 [demo](https://github.com/huanghui8030/node/tree/master/demo/readfile/)

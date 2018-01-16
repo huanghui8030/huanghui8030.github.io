@@ -16,5 +16,5 @@ sort: 0612
 
 
 
-> 详见【[demo](/widget/nodejs/express_test)】。
+> 详见【[demo](https://github.com/huanghui8030/node/tree/master/demo/express_test)】。
 

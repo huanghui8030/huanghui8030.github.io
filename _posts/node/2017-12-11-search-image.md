@@ -79,4 +79,4 @@ function fileDisplay(filePath){
 
 
 
-> 详见【[demo](/widget/nodejs/search/search.js)】。
+> 详见【[demo](https://github.com/huanghui8030/node/tree/master/demo/search/)】。
