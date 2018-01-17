@@ -253,6 +253,7 @@
     }
     h2 {
         font-size: 32px;
+        margin-top: 30px;
         border-bottom: 1px solid #ccc;
         @include media-query($on-laptop) {
             font-size: 28px;
@@ -261,7 +262,7 @@
 
     h3 {
         font-size: 26px;
-
+        margin-top: 20px;
         @include media-query($on-laptop) {
             font-size: 22px;
         }
@@ -269,9 +270,25 @@
 
     h4 {
         font-size: 20px;
-
+        margin-top: 10px;
         @include media-query($on-laptop) {
             font-size: 18px;
+        }
+    }
+    table{
+        border:1px solid #ccc;
+        line-height:1.5;
+        border-spacing: 0px;
+        th,td{
+            border: 1px solid #e3e2e2;
+            line-height: 40px;
+            padding: 0 10px;
+        }
+        thead{
+            background:#e9e9e9;
+        }
+        tbody{
+            
         }
     }
 }
@@ -330,7 +347,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        padding-right: 150px;
+        padding-right: 90px;
         &:hover {
             background:#f8cece;
             text-decoration: none;

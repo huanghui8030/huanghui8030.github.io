@@ -331,20 +331,33 @@ pre {
     font-size: 16px; }
   .post-content h2 {
     font-size: 32px;
+    margin-top: 30px;
     border-bottom: 1px solid #ccc; }
     @media screen and (max-width: 800px) {
       .post-content h2 {
         font-size: 28px; } }
   .post-content h3 {
-    font-size: 26px; }
+    font-size: 26px;
+    margin-top: 20px; }
     @media screen and (max-width: 800px) {
       .post-content h3 {
         font-size: 22px; } }
   .post-content h4 {
-    font-size: 20px; }
+    font-size: 20px;
+    margin-top: 10px; }
     @media screen and (max-width: 800px) {
       .post-content h4 {
         font-size: 18px; } }
+  .post-content table {
+    border: 1px solid #ccc;
+    line-height: 1.5;
+    border-spacing: 0px; }
+    .post-content table th, .post-content table td {
+      border: 1px solid #e3e2e2;
+      line-height: 40px;
+      padding: 0 10px; }
+    .post-content table thead {
+      background: #e9e9e9; }
 
 .post-bottom {
   border: 1px solid #ebd4d4;
@@ -396,7 +409,7 @@ pre {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-right: 150px; }
+    padding-right: 90px; }
     .side-area a:hover {
       background: #f8cece;
       text-decoration: none; }
