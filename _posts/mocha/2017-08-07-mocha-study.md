@@ -4,7 +4,7 @@ title:  "单元测试框架Mocha"
 date:   2017-08-07 16:42:19 +0800
 categories: mocha
 description: 单元测试
-sort: 0501
+sort: 0901
 ---
 
 单元测试框架mocha，该课题研究主要是在2017年8月的，主要涉及到内容整理、demo整理，以及完成PPT讲解等多个步骤，目前文档还未，打算抽空完成。主要内容为：Mocha单元测试框架介绍、Mocha单元测试用法、Mocha命令行用法。
