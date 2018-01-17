@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "一、webpack命令行之简单打包"
+title:  "二、webpack之简单打包"
 date:   2017-12-11 08:42:19 +0800
 categories: webpack
 sort: 0803

@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "五、webpack学习之entry&output"
-date:   2017-12-14 08:42:19 +0800
+title:  "六、webpack之entry&output配置"
+date:   2017-12-16 20:32:10 +0800
 categories: webpack
-sort: 0806
+sort: 0807
 ---
 
 webpack 的配置中主要的两个配置 key 是，entry 和 output。单一入口、多文件入口、多个打包目标文件、output参数说明等。
