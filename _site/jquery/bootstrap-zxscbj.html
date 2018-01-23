@@ -102,8 +102,6 @@
     <div class="page-content">
       <div class="wrapper">
         <div class="post">
-  <div class="ui">
-    
     <article class="ui-post" itemscope itemtype="http://schema.org/BlogPosting">
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">bootstrap在线生成布局插件</h1>
@@ -643,13 +641,15 @@
  </div>
 
     <div style="clear:both; font-size:0;"></div>
-    </div>
+
 </div>
 <script>
     $(function(){
         $('.ui-post a').each(function(index,ele){
             $(ele).attr('target','_blank');
         })
+
+        $('.post').height($('.ui-post').height()>$('.side-menu').height()?$('.ui-post').height():$('.side-menu').height());
     })
 </script>
 
