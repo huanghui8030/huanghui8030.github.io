@@ -26,7 +26,7 @@ sort: 0620
   }
   ```
 
-- 新建auto.js
+- 新建auto.js，其中`fs-extra`需要手动安装：npm i fs-extra --save-dev
 
   ```js
   //auto.js 自动重启
