@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>盒模型结构</title>
+    <style>
+    .block{
+        border:5px solid pink;
+        padding:20px;
+        background: #ddd;
+        margin :30px;
+        width:100px;
+    }   
+    </style>
+</head>
+<body>
+    <p>margin值左右不可叠加，上下可叠加。（横向相加，纵向叠加）</p>
+    <div class="block" id='div1'>我是一个DVI</div> 
+    <div class="block" id='div2'>我是一个DVI</div>  
+
+    <span class="block" id='div3'>我是span</span>
+    <span class="block" id='div4'>我是span</span>
+  
+</body>
+</html>
