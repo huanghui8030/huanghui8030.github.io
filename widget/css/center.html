@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -48,30 +48,6 @@
         background: grey;
     }
     .div5 {
-        display: table-cell;
-        vertical-align: middle;
-        text-align: center;
-        width: 120px;
-        height: 120px;
-        background: purple;
-    }
-    .div6 {
-        width: 100px;
-        height: 100px;
-        line-height: 100px;
-        text-align: center;
-        background: gray;
-    }
-    .div7 {
-        width: 90px;
-        height: 90px;
-        display: -webkit-box;
-        -webkit-box-pack: center;
-        -webkit-box-align: center;
-        background: yellow;
-        color: black;
-    }
-    .div8 {
         position: absolute;
         width: 80px;
         height: 80px;
@@ -84,7 +60,7 @@
         background: green;
     }
 
-    .div9 {
+    .div6 {
         position: fixed;
         display: block;
         top: 0;
@@ -94,13 +70,13 @@
         text-align: center;
         background: rgba(0, 0, 0, .5);
     }
-    .div9:before {
+    .div6:before {
         content: '';
         display: inline-block;
         vertical-align: middle;
         height: 100%;
     }
-    .div9 .content {
+    .div6 .content {
         display: inline-block;
         vertical-align: middle;
         width: 60px;
@@ -109,30 +85,45 @@
         color: red;
         background: yellow;
     }
+
+    .div21 {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        width: 120px;
+        height: 120px;
+        background: purple;
+    }
+    .div22 {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        background: gray;
+    }
+    .div23 {
+        width: 90px;
+        height: 90px;
+        display: -webkit-box;
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        background: yellow;
+        color: black;
+    }
+    
     </style>
 </head>
 
 <body>
-    <ul>
-        <li>1、使用position:absolute,设置left、top、margin-left、margin-top的属性.这种方法基本浏览器都能够兼容，不足之处就是需要固定宽高。</li>
-        <li>2、使用position:fixed,同样设置left、top、margin-left、margin-top的属性</li>
-        <li>3、利用position:fixed属性，margin:auto这个必须不要忘记了。</li>
-        <li>4、利用position:absolute属性，设置top/bottom/right/left</li>
-        <li>5、利用display:table-cell属性使内容垂直居中</li>
-        <li>6、最简单的一种使行内元素居中的方法，使用line-height属性。这种方法也很实用，比如使文字垂直居中对齐</li>
-        <li>7、使用css3的display:-webkit-box属性，再设置-webkit-box-pack:center/-webkit-box-align:center</li>
-        <li>8、使用css3的新属性transform:translate(x,y)属性</li>
-        <li>9、使用:before元素</li>
-    </ul>
     <div class="div1">1</div>
     <div class="div2">2</div>
     <div class="div3">3</div>
     <div class="div4">4</div>
     <div class="div5">5</div>
     <div class="div6">6</div>
-    <div class="div7">7</div>
-    <div class="div8">8</div>
-    <div class="div9">9</div>
+    <div class="div21">内容居中1</div>
+    <div class="div22">内容居中2</div>
+    <div class="div23">内容居中3</div>
 </body>
 
 </html>
