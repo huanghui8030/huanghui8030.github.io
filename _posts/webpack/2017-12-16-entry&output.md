@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "六、webpack之entry&output配置"
+title:  "六、webpack3.x之entry&output配置"
 date:   2017-12-16 20:32:10 +0800
 categories: webpack
 sort: 0807

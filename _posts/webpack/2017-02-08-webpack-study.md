@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "webpack课题研究"
+title:  "webpack3.x课题研究"
 date:   2017-02-08 16:42:19 +0800
 categories: webpack
 sort: 0801
@@ -8,6 +8,8 @@ sort: 0801
 主要是为了学习webpack，目前前端出现的各种框架中，webpack是必不可少的，所有需要学习和研究。下面的每一篇文章都是针对webpack初学者来说的，一步一步的进行学习。
 
 针对webpack的课题研究，根据一下内容进行编写ppt，该文章为ppt的基础，当实际PPT中会有一些删减，具体以ppt为主，该文章只是辅助作用。具体从一下几个方面进行讲解：
+
+**以下所有内容都是针对webpack3.x版本进行的研究和分析！**
 
 ## 一、webpack的简介
 
