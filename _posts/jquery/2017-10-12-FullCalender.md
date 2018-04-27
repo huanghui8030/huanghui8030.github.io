@@ -3,7 +3,7 @@ layout: post
 title:  "fullCalender日历插件"
 date:   2017-10-12 14:12:19 +0800
 categories: jquery
-sort: 0104
+sort: 0108
 ---
 
 - fullCalender事件日历，显示全尺寸拖放事件日历。可定制和开源，但不能用于商业用途。
@@ -29,7 +29,7 @@ sort: 0104
 
 ## 效果
 
-![效果图](/assets/jquery/0401.png)
+![效果图](/assets/jquery/0801.png)
 
 
 

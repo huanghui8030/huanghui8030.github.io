@@ -1,4 +1,12 @@
-# jQuery-Validation插件用法总结
+---
+layout: post
+title:  "jQuery-Validation插件用法总结"
+date:   2016-07-20 21:12:19 +0800
+categories: jquery
+sort: 0105
+---
+
+jQuery-Validation插件用法总结
 
 ​	[jquery](https://jquery.com/)、[jquery-validation](http://plugins.jquery.com/validation/)、[jquery-validation for github](https://github.com/jzaefferer/jquery-validation)
 

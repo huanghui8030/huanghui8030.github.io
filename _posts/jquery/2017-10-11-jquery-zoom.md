@@ -3,7 +3,7 @@ layout: post
 title:  "jquery zoom 图片放大镜效果插件"
 date:   2017-10-11 10:12:19 +0800
 categories: jquery
-sort: 0103
+sort: 0107
 ---
 
 - jquery-zoom是基于jquery的插件，使用前需要引入jquery。

@@ -3,7 +3,7 @@ layout: post
 title:  "原生js实现Date格式转化"
 date:   2017-10-18 10:12:19 +0800
 categories: js
-sort: 0203
+sort: 0204
 ---
 
 - 通过js获取到时间的方法，但是时间经常不对，需要进行转换才行，而且每次转换时间。

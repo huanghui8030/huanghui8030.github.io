@@ -1,12 +1,10 @@
 ---
 layout: post
-title:  "Sublime Text 2 用法"
+title:  "Browsersyns插件用法"
 date:   2016-07-17 08:12:19 +0800
 categories: other
 sort: 1007
 ---
-
-# Browsersync插件
 
 ​	[browsersyns官网](http://www.browsersync.cn/#install)
 
