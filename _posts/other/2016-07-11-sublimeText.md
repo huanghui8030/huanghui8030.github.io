@@ -1,12 +1,12 @@
 ---
 layout: post
-title:  "Sublime Text 2用法"
+title:  "【工具】Sublime Text用法"
 date:   2016-07-11 08:12:19 +0800
 categories: other
 sort: 1002
 ---
 
-## 1、sunblime text2介绍
+## 1、sunblime text介绍
 
 - 现在官方版本号为[sublime text2](https://www.sublimetext.com/2)，但其实[官方网站](https://www.sublimetext.com/)上已经有了[sublime text3](https://www.sublimetext.com/3)了，用哪种都可以。
 

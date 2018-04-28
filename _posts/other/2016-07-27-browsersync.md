@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Browsersyns插件用法"
+title:  "【插件】Browsersyns插件用法"
 date:   2016-07-17 08:12:19 +0800
 categories: other
 sort: 1007
