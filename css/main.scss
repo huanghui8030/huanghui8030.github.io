@@ -27,7 +27,7 @@ $grey-color-bg:  darken($grey-color, 80%);
 $content-width:    1200px;
 
 $on-palm:          600px;
-$on-laptop:        800px;
+$on-laptop:        800px;     
 
 $red-color:#CA3131;//红色
 $purple-color:  #7265e6;//紫色
@@ -43,7 +43,7 @@ $white-color:   #fff;//白色
 @mixin media-query($device) {
     @media screen and (max-width: $device) {
         @content;
-    }
+    } 
 }
 
 

@@ -135,4 +135,19 @@
         </ul>
     {% endif %}
 
+    {% if  site.categories.tools %}
+        <h3 class="side-title">工具（{{site.categories.tools.size}}）</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.tools | sort: "order" %}
+        {% for node in _posts_array %}
+              <li>
+                <a href='{{node.url | prepend: site.baseurl }}' title=' {{node.title}}'>
+                  {{node.title}}
+                  <span class="side-time">{{ node.date | date: "%Y-%m-%d" }}</span>
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
 </div>

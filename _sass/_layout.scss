@@ -33,6 +33,7 @@
         background-color: transparent;
         text-decoration:none;
     }
+
 }
 
 .site-nav {
@@ -56,13 +57,9 @@
     }
 
     @include media-query($on-palm) {
-        position: absolute;
-        top: 9px;
-        right: $spacing-unit / 2;
         background-color: $background-color;
         border: 1px solid $grey-color-light;
         border-radius: 5px;
-        text-align: right;
 
         .menu-icon {
             display: block;
@@ -85,22 +82,26 @@
 
         .trigger {
             clear: both;
-            display: none;
-        }
+            /* display: none; */
+        } 
 
         &:hover .trigger {
             display: block;
             padding-bottom: 5px;
         }
 
-        .page-link {
+        a.page-link {
             display: block;
-            padding: 5px 10px;
-
+            padding: 0px 4px;
+            margin-left: 8px;
+            line-height: 32px;
+            &,&:hover{
+                color:#2a7ae2;
+            }
             &:not(:last-child) {
                 margin-right: 0;
+                margin-left:8px;
             }
-            margin-left: 20px;
         }
     }
 }
@@ -183,6 +184,9 @@
 .page-content {
     padding: $spacing-unit 0;
     margin-top: 60px;
+    @include media-query($on-palm) {
+         margin-top: 100px;
+    }
 }
 
 .page-heading {
@@ -309,10 +313,19 @@
     position: absolute;
     right: 0px;
     top: 0;
+    @include media-query($on-laptop) {
+        display:none;
+    }
 }
 
 .ui-post {
     margin-right: 400px;
+     @include media-query($on-laptop) {
+        max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
+        max-width:         calc(#{$content-width} - (#{$spacing-unit}));
+        margin:0;
+        padding:0;
+    }
 }
 //左侧菜单选中
 .side-area {

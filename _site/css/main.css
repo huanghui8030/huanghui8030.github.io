@@ -109,7 +109,7 @@ pre {
     padding-left: 0; }
 
 /**
- * Wrapper
+ * Wrapper 
  */
 .wrapper {
   max-width: -webkit-calc(1200px - (30px * 2));
@@ -117,13 +117,14 @@ pre {
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
-  padding-left: 30px; }
+  padding-left: 30px;
+  word-wrap: break-word; }
   @media screen and (max-width: 800px) {
     .wrapper {
       max-width: -webkit-calc(1200px - (30px));
       max-width: calc(1200px - (30px));
-      padding-right: 15px;
-      padding-left: 15px; } }
+      padding-right: 8px;
+      padding-left: 8px; } }
 
 /**
  * Clearfix
@@ -188,13 +189,9 @@ pre {
     color: #333; }
   @media screen and (max-width: 600px) {
     .site-nav {
-      position: absolute;
-      top: 9px;
-      right: 15px;
       background-color: #fdfdfd;
       border: 1px solid #e8e8e8;
-      border-radius: 5px;
-      text-align: right; }
+      border-radius: 5px; }
       .site-nav .menu-icon {
         display: block;
         float: right;
@@ -210,16 +207,20 @@ pre {
             fill: #424242; }
       .site-nav .trigger {
         clear: both;
-        display: none; }
+        /* display: none; */ }
       .site-nav:hover .trigger {
         display: block;
         padding-bottom: 5px; }
-      .site-nav .page-link {
+      .site-nav a.page-link {
         display: block;
-        padding: 5px 10px;
-        margin-left: 20px; }
-        .site-nav .page-link:not(:last-child) {
-          margin-right: 0; } }
+        padding: 0px 4px;
+        margin-left: 8px;
+        line-height: 32px; }
+        .site-nav a.page-link, .site-nav a.page-link:hover {
+          color: #2a7ae2; }
+        .site-nav a.page-link:not(:last-child) {
+          margin-right: 0;
+          margin-left: 8px; } }
 
 /**
  * Site footer
@@ -279,6 +280,9 @@ pre {
 .page-content {
   padding: 30px 0;
   margin-top: 60px; }
+  @media screen and (max-width: 600px) {
+    .page-content {
+      margin-top: 100px; } }
 
 .page-heading {
   font-size: 20px; }
@@ -376,9 +380,18 @@ pre {
   position: absolute;
   right: 0px;
   top: 0; }
+  @media screen and (max-width: 800px) {
+    .side-menu {
+      display: none; } }
 
 .ui-post {
   margin-right: 400px; }
+  @media screen and (max-width: 800px) {
+    .ui-post {
+      max-width: -webkit-calc(1200px - (30px));
+      max-width: calc(1200px - (30px));
+      margin: 0;
+      padding: 0; } }
 
 .side-area {
   overflow: hidden;
