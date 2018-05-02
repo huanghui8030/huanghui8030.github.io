@@ -55,8 +55,7 @@ workingDayArray:[]//加班列表，格式为：20171013
 
 ## 效果图
 
-![效果图](/assets/jquery/0901.png)
+![效果图](../../assets/jquery/0901.png)
 
+>  详见【[demo](/widget/jquery/fullcalendar-scheduler-1.8.0/index.html)】
 
-
-详见【[demo](/widget/jquery/holiday-calendar/index.html)】

@@ -29,8 +29,8 @@ sort: 0108
 
 ## 效果
 
-![效果图](/assets/jquery/0801.png)
+![效果图](../../assets/jquery/0801.png)
 
 
 
-详见【[demo](/widget/jquery/fullcalendar-scheduler-1.8.0/index.html)】
+>  详见【[demo](/widget/jquery/holiday-calendar/index.html)】
