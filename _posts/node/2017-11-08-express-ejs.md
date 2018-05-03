@@ -50,7 +50,7 @@ ejs模板学习起来非常简单,类似html,标签和jsp里的java代码标签�
 
   结果：
 
-  ![效果图](/assets/node/1401.png)
+  ![效果图](../../assets/node/1401.png)
 
 - <%include %>， 包含其他ejs文件,一般用于包含头部引用和页面相同的部分
 

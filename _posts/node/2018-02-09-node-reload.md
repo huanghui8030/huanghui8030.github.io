@@ -45,13 +45,13 @@ sort: 0620
 
 - 终端执行：`node auto.js`
 
-  ![效果图](/assets/node/2001.png)
+  ![效果图](../../assets/node/2001.png)
 
 - 结果，可以看到服务器自动重启，并指出错误的地方。
 
 - 修改了代码后，可看到node服务执行正常。
 
-  ![效果图](/assets/node/2002.png)
+  ![效果图](../../assets/node/2002.png)
 
 > 详见[demo](https://github.com/huanghui8030/Node/tree/master/test/reload)
 
@@ -63,7 +63,7 @@ sort: 0620
 
 - 启动方法`cnpm start`还是不变
 
-  ![效果图](/assets/node/2003.png)
+  ![效果图](../../assets/node/2003.png)
 
 - 如果js中有错误的时候会报错，直到错误修改后，会自动重启服务器，是一个很好的方法。
 

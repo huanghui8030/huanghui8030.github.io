@@ -32,7 +32,7 @@ express-session deprecated undefined resave option; provide resave option app.js
 express-session deprecated undefined saveUninitialized option; provide saveUninitialized option app.js:15:9
 ```
 
-![效果图](/assets/node/1901.png)
+![效果图](../../assets/node/1901.png)
 
 **原因是resave和saveUninitialized现在已经没有默认值了，必须要设置才行！**
 

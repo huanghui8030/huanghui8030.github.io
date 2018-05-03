@@ -24,7 +24,7 @@ sort: 0307
 
 　　对于非替换的行内元素来说，尽管内容周围存在内边距与边框，但其占用空间（行高）由line-height属性决定。
 
-![效果图](/assets/css/0701.png)
+![效果图](../../assets/css/0701.png)
 
 > 详见【[demo](/widget/css/box-sizing.html)】
 
@@ -50,7 +50,7 @@ sort: 0307
 
 ### 总结归纳
 
-![效果图](/assets/css/0702.png)
+![效果图](../../assets/css/0702.png)
 
 
 

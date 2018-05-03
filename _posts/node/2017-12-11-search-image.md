@@ -75,7 +75,7 @@ function fileDisplay(filePath){
 
 - 效果图如下：
 
-![效果图](/assets/node/1601.png)
+![效果图](../../assets/node/1601.png)
 
 
 

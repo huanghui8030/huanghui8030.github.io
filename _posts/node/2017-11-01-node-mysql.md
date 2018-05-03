@@ -47,7 +47,7 @@ nodeJs链接本地mysql数据库，方法如下：
 
 - 效果如下：
 
-  ![效果图](/assets/node/0601.png)
+  ![效果图](../../assets/node/0601.png)
 
 > 详见【[demo](https://github.com/huanghui8030/node/tree/master/demo/mysql/)】
 

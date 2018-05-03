@@ -3,7 +3,7 @@ layout: post
 title:  "Sublime text3中运行Nodejs"
 date:   2018-01-23 12:30:10 +0800
 categories: tools
-sort: 1110
+sort: 1111
 ---
 
 在Sublime text3中直接运行nodejs，不用在终端执行nodejs文件，便于测试代码。很方便使用！！
@@ -37,5 +37,5 @@ sort: 1110
 
 - 效果如下：
 
-  ![效果图](/assets/node/1801.png)
+  ![效果图](../../assets/tools/1101.png)
 

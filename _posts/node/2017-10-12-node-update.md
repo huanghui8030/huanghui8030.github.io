@@ -19,7 +19,7 @@ nodeJs大家经常会用到，但是更新太快，有些内容如果不更新�
 
 - 全局安装，命令如下：`sudo cnpm install -g n`
 
-  ![效果图](/assets/node/0101.png)
+  ![效果图](../../assets/node/0101.png)
 
 - nodejs版本升级：
 
@@ -38,26 +38,26 @@ nodeJs大家经常会用到，但是更新太快，有些内容如果不更新�
 
   如图所示（无权访问）：
 
-  ![效果图 100100](/assets/node/0102.png)
+  ![效果图 100100](../../assets/node/0102.png)
 
 -  解决方法如下：
 
    -  点开Finder，进入文件管理器中输入没有权限的地址
 
-   ![效果图](/assets/node/0103.png)
+   ![效果图](../../assets/node/0103.png)
 
    - 找到node文件后，右键-》“显示简介”
 
-   ![效果图](/assets/node/0104.png)
+   ![效果图](../../assets/node/0104.png)
 
    - 最下面“共享与权限”，可以看到wheel和everyone的权限为“只读”。
 
-   ![效果图](/assets/node/0105.png)
+   ![效果图](../../assets/node/0105.png)
 
    - 点击右下角的小锁，设置wheel和everyone的权限为“读与写”即可
 
-   ![效果图](/assets/node/0106.png)
+   ![效果图](../../assets/node/0106.png)
 
 -  再次执行：`n stable`，最后执行结果如下，并查询node版本为最新稳定版本：
 
-   ![效果图](/assets/node/0107.png)
+   ![效果图](../../assets/node/0107.png)

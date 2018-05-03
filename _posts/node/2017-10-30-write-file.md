@@ -10,7 +10,7 @@ nodejs读取文件以及写入文件的方法
 
 - 新建txt文件file/file.txt，写入任意内容，例如：
 
-  ![效果图](/assets/node/0301.png)
+  ![效果图](../../assets/node/0301.png)
 
 
 - 新建readText.js，写入以下内容：
@@ -40,11 +40,11 @@ fs.writeFile('file/file.txt',data,{flag:'a',encoding:'utf-8',mode:'0666'},functi
 
 - 终端执行：node readText.js
 
-  ![效果图](/assets/node/0302.png)
+  ![效果图](../../assets/node/0302.png)
 
 - 执行后文件中的内容：
 
-  ![效果图](/assets/node/0303.png)
+  ![效果图](../../assets/node/0303.png)
 
   ​
 
