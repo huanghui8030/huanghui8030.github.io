@@ -19,7 +19,11 @@ body {
   -moz-font-feature-settings: "kern" 1;
   -o-font-feature-settings: "kern" 1;
   font-feature-settings: "kern" 1;
-  font-kerning: normal; }
+  font-kerning: normal;
+  min-width: 1200px; }
+  @media screen and (max-width: 600px) {
+    body {
+      min-width: auto; } }
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
@@ -156,7 +160,11 @@ pre {
   position: fixed;
   top: 0;
   z-index: 99999;
-  width: 100%; }
+  width: 100%;
+  min-width: 1200px; }
+  @media screen and (max-width: 600px) {
+    .site-header {
+      min-width: auto; } }
 
 .site-title {
   font-size: 26px;
@@ -324,10 +332,10 @@ pre {
 .post-title {
   font-size: 40px;
   letter-spacing: -1px;
-  line-height: 1; }
+  line-height: 1.2; }
   @media screen and (max-width: 800px) {
     .post-title {
-      font-size: 36px; } }
+      font-size: 30px; } }
 
 .post-content {
   margin-bottom: 30px; }
@@ -339,7 +347,8 @@ pre {
     border-bottom: 1px solid #ccc; }
     @media screen and (max-width: 800px) {
       .post-content h2 {
-        font-size: 28px; } }
+        font-size: 24px;
+        margin-top: 10px; } }
   .post-content h3 {
     font-size: 26px;
     margin-top: 20px; }

@@ -11,6 +11,10 @@
     top:0;
     z-index: 99999;
     width:100%;
+    min-width: 1200px;
+    @include media-query($on-palm) {
+        min-width:auto;
+    }
 }
 
 .site-title{
@@ -241,10 +245,10 @@
 .post-title {
     font-size: 40px;
     letter-spacing: -1px;
-    line-height: 1;
+    line-height: 1.2;
 
     @include media-query($on-laptop) {
-        font-size: 36px;
+        font-size: 30px;
     }
 }
 
@@ -260,7 +264,8 @@
         margin-top: 30px;
         border-bottom: 1px solid #ccc;
         @include media-query($on-laptop) {
-            font-size: 28px;
+            font-size: 24px;
+            margin-top:10px;
         }
     }
 

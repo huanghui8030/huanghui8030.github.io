@@ -23,6 +23,10 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    min-width: 1200px;
+    @include media-query($on-palm) {
+        min-width:auto;
+    }
 }
 
 
