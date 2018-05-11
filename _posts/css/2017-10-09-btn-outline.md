@@ -3,7 +3,7 @@ layout: post
 title:  "去掉按钮点击后的虚线框样式"
 date:   2017-10-09 11:26:19  +0800
 categories: css
-sort: 0302
+sort: 0303
 ---
 
 button或者是input[type="button"]，点击后按钮区域会有一个蓝色的边框。
