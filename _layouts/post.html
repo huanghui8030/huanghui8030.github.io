@@ -28,7 +28,8 @@ layout: default
         $('.ui-post a').each(function(index,ele){
             $(ele).attr('target','_blank');
         })
-
-        $('.post').height($('.ui-post').height()>$('.side-menu').height()?$('.ui-post').height():$('.side-menu').height());
+        if($('.ui-post').height()< $('.side-menu').height()){
+          $('.post').height($('.side-menu').height());
+        }   
     })
 </script>

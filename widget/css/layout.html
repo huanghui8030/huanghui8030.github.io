@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>布局，实现左侧固定，右侧自适应的布局</title>
+    <style>
+        *{padding:0;margin:0;}
+        html,body{height: 100%}
+        .header{
+            height: 100px;
+            background: lightgrey;
+        }
+        .content{
+            height: calc(100% - 100px);
+            position: relative;
+            background: lightyellow;
+        }
+        .left{
+            width: 200px;
+            height:100%;
+            position: absolute;
+            background: lightgreen;
+        }
+        .right{            
+            height:100%;
+            margin-left:200px;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">header：calc和position进行布局</div>
+    <div class="content">
+        <div class="left">left固定</div>
+        <div class="right">right自适应</div>
+    </div>
+</body>
+</html>

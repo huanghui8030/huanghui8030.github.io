@@ -21,7 +21,7 @@
 
   <div class="wrapper">
 
-    <a class="site-title" href="/">前端知识总结 （109）</a>
+    <a class="site-title" href="/">前端知识总结 （111）</a>
 
     <nav class="site-nav">
       <div class="trigger">
@@ -140,9 +140,16 @@
     
     <div class="side-menu"><div class="side-area" style="display: none;">
     
-        <h3 class="side-title">CSS（13）</h3>
+        <h3 class="side-title">CSS（14）</h3>
         <ul>
         
+        
+              <li>
+                <a href='/css/layout.html' title=' CSS-layout'>
+                  CSS-layout
+                  <span class="side-time">2018-05-11</span>
+                </a>
+              </li>
         
               <li>
                 <a href='/css/position.html' title=' CSS-position'>
@@ -347,9 +354,16 @@
     
 
     
-        <h3 class="side-title">Js（24）</h3>
+        <h3 class="side-title">Js（25）</h3>
         <ul>
         
+        
+              <li>
+                <a href='/js/array.html' title=' js中经常遇到的一些基本算法'>
+                  js中经常遇到的一些基本算法
+                  <span class="side-time">2018-05-11</span>
+                </a>
+              </li>
         
               <li>
                 <a href='/js/data-vue.html' title=' 双向数据绑定的实现原理'>
@@ -987,8 +1001,9 @@
         $('.ui-post a').each(function(index,ele){
             $(ele).attr('target','_blank');
         })
-
-        $('.post').height($('.ui-post').height()>$('.side-menu').height()?$('.ui-post').height():$('.side-menu').height());
+        if($('.ui-post').height()< $('.side-menu').height()){
+          $('.post').height($('.side-menu').height());
+        }   
     })
 </script>
 
