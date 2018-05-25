@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "vue-cli配置mint-ui时报错- Module build failed: Error: No PostCSS"
-date:   2018-03-29 21:31:30  +0800
+date:   2018-05-21 21:31:30  +0800
 categories: vue
-sort: 1202
+sort: 1204
 ---
 
 vue-cli配置mint-ui时报错- Module build failed: Error: No PostCSS。最近想到用[Mint UI](http://mint-ui.github.io/docs/#/zh-cn2/quickstart) 饿了么的移动端ui框架，但是在使用vue-cli脚手架时，发现有报错信息。而且是根据官方文档的步骤进行的，其中也有错误的步骤。
