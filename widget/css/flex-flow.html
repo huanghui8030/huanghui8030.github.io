@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>flex-flow</title>
+    <style>
+*{margin: 0;padding: 0}
+.outer{
+    display: flex;
+    flex-flow: row wrap;
+}
+.outer .block{
+    box-sizing: border-box;
+    flex: 0 0 25%;
+    height: 50px;
+    padding: 10px 20px 10px 0; 
+}
+.outer .block:nth-child(4n){
+    padding-right: 0
+}
+.outer span{
+    box-sizing: border-box;
+    display: inline-block; 
+    width: 100%;
+    border: 1px solid red;
+}
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="block"><span>div1</span></div>
+        <div class="block"><span>div2</span></div>
+        <div class="block"><span>div3</span></div>
+        <div class="block"><span>div4</span></div>
+        <div class="block"><span>div5</span></div>
+        <div class="block"><span>div6</span></div>
+        <div class="block"><span>div7</span></div>
+    </div>
+    
+</body>
+</html>
