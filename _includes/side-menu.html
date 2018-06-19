@@ -150,4 +150,19 @@
         </ul>
     {% endif %}
 
+    {% if  site.categories.react %}
+        <h3 class="side-title">React（{{site.categories.react.size}}）</h3>
+        <ul>
+        {% assign _posts_array =  site.categories.react | sort: "order" %}
+        {% for react in _posts_array %}
+              <li>
+                <a href='{{react.url | prepend: site.baseurl }}' title=' {{react.title}}'>
+                  {{react.title}}
+                  <span class="side-time">{{ react.date | date: "%Y-%m-%d" }}</span>
+                </a>
+              </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
 </div>
