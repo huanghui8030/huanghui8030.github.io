@@ -6,7 +6,7 @@ sort: 13
 ---
 
 <div class="home">
-    <h1 class="post-title">{{page.title}}（{{site.categories.other.size}}）</h1>
+    <h1 class="post-title">{{page.title}}（{{site.categories.react.size}}）</h1>
     <ul class="post-list">
         {% for post in site.categories.react %}
             <li>
